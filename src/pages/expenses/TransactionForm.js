@@ -1,17 +1,34 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './transaction-form.module.scss';
 
 const TransactionForm = ({onClose}) => {
+
+    const initialState = { title: '', category: '', amount: 0, comments: '' }
+
+    const [transaction, setTransaction] = useState(initialState);
+
+    const handleInputs = e => {
+        setTransaction({
+            ...transaction,
+            [e.target.name]: e.target.value
+        })
+    }
+
+    const handleSubmit = e => {
+        e.preventDefault();
+        console.log(transaction);
+    }
+
     return (
         <div className={styles.f__container}>
-           <form>
+           <form onSubmit={handleSubmit}>
                <div className="form-group mb-2">
                    <label className="small text-muted" htmlFor="title">Title</label>
-                   <input type="text" name="title" id="title" className="form-control form-control-sm"/>
+                   <input onChange={handleInputs} value={transaction.title}  type="text" name="title" id="title" className="form-control form-control-sm"/>
                </div>
                <div className="form-group mb-2">
                     <label className="small text-muted" htmlFor="category">Category</label>
-                    <select className="form-control form-control-sm" name="category" id="category">
+                    <select onChange={handleInputs} value={transaction.category} className="form-control form-control-sm" name="category" id="category">
                         <option value="0">---</option>
                         <option value="service">Service</option>
                         <option value="food">Food</option>
@@ -19,7 +36,11 @@ const TransactionForm = ({onClose}) => {
                </div>
                <div className="form-group mb-2">
                    <label className="small text-muted" htmlFor="amount">Amount</label>
-                   <input type="number" name="amount" id="amount" className="form-control form-control-sm text-right"/>
+                   <input onChange={handleInputs} value={transaction.amount} type="number" name="amount" id="amount" className="form-control form-control-sm text-right"/>
+               </div>
+               <div className="form-group">
+                   <label className="small text-muted" htmlFor="comments">Comments</label>
+                   <textarea  onChange={handleInputs} value={transaction.comments} name="comments" id="comments" className="form-control form-control-sm" cols="30" rows="2"></textarea>
                </div>
                <div className="text-right">
                     <button
