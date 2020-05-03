@@ -80,14 +80,15 @@ const History = () => {
             { !showForm && 
             <div className={styles.h__container}>
                 {
-                    transactions.map(item =>
+                  transactions && transactions.length > 0 ? transactions.map(item =>
                         <HistoryItem
                         id={item.id}
                         title={item.title}
                         category={item.category}
                         comments={item.comments}
                         created={item.createdAt}
-                        amount={item.amount}/>)
+                        amount={item.amount}/>) :
+                        <div className="text-muted small text-center p-3">No transactions.</div>
                 }
                 
             </div>}

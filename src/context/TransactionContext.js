@@ -21,14 +21,14 @@ const TransactionsContextProvider = ({children}) => {
     const getUser = id => {
         return transactions.find(u => u.id === id)
     }
-    const addTransaction = ({title, category, ammount, comments }) => {
+    const addTransaction = ({title, category, amount, comments }) => {
         setTransactions([
             ...transactions,
             {
                 id: uuidv4(),
                 title,
                 category,
-                ammount,
+                amount,
                 comments,
                 createdAt: new Date().toISOString()
             }
@@ -38,13 +38,13 @@ const TransactionsContextProvider = ({children}) => {
     const deleteTransaction = id => {
         setTransactions(transactions.filter(u => u.id !== id));
     }
-    const updateTransaction = (id, { title, category, ammount, comments}) => {
+    const updateTransaction = (id, { title, category, amount, comments}) => {
 
         transactions[transactions.findIndex(u => u.id === id)] = {
             ...transactions.find(u => u.id === id),
             title,
             category,
-            ammount,
+            amount,
             comments
         };
 

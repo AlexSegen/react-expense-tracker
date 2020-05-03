@@ -36,6 +36,7 @@ const TransactionForm = ({onClose}) => {
                         <option value="0">---</option>
                         <option value="service">Service</option>
                         <option value="food">Food</option>
+                        <option value="other">Other</option>
                     </select>
                </div>
                <div className="form-group mb-2">
