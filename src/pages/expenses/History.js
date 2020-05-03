@@ -1,10 +1,10 @@
 import React,{ useState, useContext } from 'react';
 import { TransactionsContext } from '../../context/TransactionContext';
-import { formatNumber} from '../../helpers/utils';
+import { formatNumber, formatDateTime } from '../../helpers/utils';
 import TransactionForm from './TransactionForm';
 import styles from './history.module.scss';
 
-const HistoryItem = ({title, category, amount, comments, created, id}) => {
+const HistoryItem = ({title, category, amount, comments, createdAt, id}) => {
 
     const { deleteTransaction } = useContext(TransactionsContext);
 
@@ -41,7 +41,7 @@ const HistoryItem = ({title, category, amount, comments, created, id}) => {
     
                     <p className={styles.title}>Created</p>
                     <div className={styles.desc}>
-                        {created}
+                        {formatDateTime(createdAt)}
                     </div>
 
                     <p className={styles.title}>Comments</p>
@@ -88,7 +88,7 @@ const History = () => {
                         title={item.title}
                         category={item.category}
                         comments={item.comments}
-                        created={item.createdAt}
+                        createdAt={item.createdAt}
                         amount={item.amount}/>) :
                         <div className="text-muted small text-center p-3">No transactions.</div>
                 }
