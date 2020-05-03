@@ -21,6 +21,7 @@ const TransactionForm = ({onClose}) => {
         e.preventDefault();
         addTransaction(transaction);
         setTransaction(initialState);
+        onClose();
     }
 
     return (
