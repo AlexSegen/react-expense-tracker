@@ -4,28 +4,6 @@
   }
 }
 
-.balance {
-    &__box {
-        .balance {
-            &__title {
-                font-size: 1rem;
-                line-height: 1rem;
-                font-weight: normal;
-                text-transform: uppercase;
-                display: block;
-                margin: 0 0 5px;
-            }
-            &__amount {
-                font-size: 2rem;
-                line-height: 2rem;
-                font-weight: 700;
-                display: block;
-                margin: 0 0 0;
-            }
-        }
-    }
-}
-
 .amounts {
     &__box {
         display: flex;

@@ -1,7 +1,8 @@
 import React,{ useState, useContext } from 'react';
-import styles from './history.module.scss';
-import TransactionForm from './TransactionForm';
 import { TransactionsContext } from '../../context/TransactionContext';
+import { formatNumber} from '../../helpers/utils';
+import TransactionForm from './TransactionForm';
+import styles from './history.module.scss';
 
 const HistoryItem = ({title, category, amount, comments, created, id}) => {
 
@@ -27,7 +28,7 @@ const HistoryItem = ({title, category, amount, comments, created, id}) => {
                         <span className={styles.category}>{category}</span>
                     </div>
                     <div className={styles.amount}>
-                        {amount}
+                        {formatNumber(amount)}
                     </div>
                 </div>
                 <button onClick={deleteEntry} className={styles.action} type="button">
@@ -82,6 +83,7 @@ const History = () => {
                 {
                   transactions && transactions.length > 0 ? transactions.map(item =>
                         <HistoryItem
+                        key={item.id}
                         id={item.id}
                         title={item.title}
                         category={item.category}

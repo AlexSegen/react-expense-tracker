@@ -28,7 +28,7 @@ const TransactionsContextProvider = ({children}) => {
                 id: uuidv4(),
                 title,
                 category,
-                amount,
+                amount : parseInt(amount),
                 comments,
                 createdAt: new Date().toISOString()
             }
@@ -44,7 +44,7 @@ const TransactionsContextProvider = ({children}) => {
             ...transactions.find(u => u.id === id),
             title,
             category,
-            amount,
+            amount: parseInt(amount),
             comments
         };
 
