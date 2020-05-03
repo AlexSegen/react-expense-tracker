@@ -1,0 +1,288 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+$radius: 2px;
+
+.btn {
+  border-radius: $radius;
+
+  &.btn-blue {
+    color: #fff;
+    background: $blue;
+    border: 1px solid $blue;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($blue, 10%);
+      border: 1px solid darken($blue, 10%);
+    }
+  }
+
+  &.btn-outline-blue {
+    color: $blue;
+    background: transparent;
+    border: 1px solid $blue;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $blue;
+      border: 1px solid $blue;
+    }
+  }
+
+  &.btn-indigo {
+    color: #fff;
+    background: $indigo;
+    border: 1px solid $indigo;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($indigo, 10%);
+      border: 1px solid darken($indigo, 10%);
+    }
+  }
+
+  &.btn-outline-indigo {
+    color: $indigo;
+    background: transparent;
+    border: 1px solid $indigo;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $indigo;
+      border: 1px solid $indigo;
+    }
+  }
+
+  &.btn-purple {
+    color: #fff;
+    background: $purple;
+    border: 1px solid $purple;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($purple, 10%);
+      border: 1px solid darken($purple, 10%);
+    }
+  }
+
+  &.btn-outline-purple {
+    color: $purple;
+    background: transparent;
+    border: 1px solid $purple;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $purple;
+      border: 1px solid $purple;
+    }
+  }
+
+  &.btn-pink {
+    color: #fff;
+    background: $pink;
+    border: 1px solid $pink;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($pink, 10%);
+      border: 1px solid darken($pink, 10%);
+    }
+  }
+
+  &.btn-outline-pink {
+    color: $pink;
+    background: transparent;
+    border: 1px solid $pink;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $pink;
+      border: 1px solid $pink;
+    }
+  }
+
+  &.btn-red {
+    color: #fff;
+    background: $red;
+    border: 1px solid $red;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($red, 10%);
+      border: 1px solid darken($red, 10%);
+    }
+  }
+
+  &.btn-outline-red {
+    color: $red;
+    background: transparent;
+    border: 1px solid $red;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $red;
+      border: 1px solid $red;
+    }
+  }
+
+  &.btn-orange {
+    color: #fff;
+    background: $orange;
+    border: 1px solid $orange;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($orange, 10%);
+      border: 1px solid darken($orange, 10%);
+    }
+  }
+
+  &.btn-outline-orange {
+    color: $orange;
+    background: transparent;
+    border: 1px solid $orange;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $orange;
+      border: 1px solid $orange;
+    }
+  }
+
+  &.btn-yellow {
+    color: #fff;
+    background: $yellow;
+    border: 1px solid $yellow;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($yellow, 10%);
+      border: 1px solid darken($yellow, 10%);
+    }
+  }
+
+  &.btn-outline-yellow {
+    color: $yellow;
+    background: transparent;
+    border: 1px solid $yellow;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $yellow;
+      border: 1px solid $yellow;
+    }
+  }
+
+  &.btn-green {
+    color: #fff;
+    background: $green;
+    border: 1px solid $green;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($green, 10%);
+      border: 1px solid darken($green, 10%);
+    }
+  }
+
+  &.btn-outline-green {
+    color: $green;
+    background: transparent;
+    border: 1px solid $green;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $green;
+      border: 1px solid $green;
+    }
+  }
+
+  &.btn-teal {
+    color: #fff;
+    background: $teal;
+    border: 1px solid $teal;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($teal, 10%);
+      border: 1px solid darken($teal, 10%);
+    }
+  }
+
+  &.btn-outline-teal {
+    color: $teal;
+    background: transparent;
+    border: 1px solid $teal;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $teal;
+      border: 1px solid $teal;
+    }
+  }
+
+  &.btn-cyan {
+    color: #fff;
+    background: $cyan;
+    border: 1px solid $cyan;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: darken($cyan, 10%);
+      border: 1px solid darken($cyan, 10%);
+    }
+  }
+
+  &.btn-outline-cyan {
+    color: $cyan;
+    background: transparent;
+    border: 1px solid $cyan;
+
+    &:hover,
+    &:focus,
+    &.active {
+      color: #fff;
+      background: $cyan;
+      border: 1px solid $cyan;
+    }
+  }
+}

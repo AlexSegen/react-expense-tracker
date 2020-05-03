@@ -1,0 +1,24 @@
+.page {
+
+    &__header {
+        text-align: center;
+        padding: 5px;
+      .title {
+        font-size: 1.4rem;
+        line-height: 1.6rem;
+        margin: 0 0 5px;
+      }
+  
+      .subtitle {
+        font-size: 1rem;
+        line-height: 1.4rem;
+        opacity: .7;
+        margin: 0;
+      }
+    }
+  
+    &__content {
+  
+    }
+  }
+  

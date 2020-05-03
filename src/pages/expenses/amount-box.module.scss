@@ -1,0 +1,36 @@
+.amounts {
+    &__box {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px 0;
+        border-top: 1px solid #f2f2f2;
+        border-bottom: 1px solid #f2f2f2;
+        .box {
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            .title {
+                font-size: .8rem;
+                line-height: 1rem;
+                opacity: .7;
+                font-weight: normal;
+                text-transform: uppercase;
+                display: block;
+            }
+            .value {
+                font-size: 1.5rem;
+                line-height: 1.5rem;
+                font-weight: normal;
+                display: block;
+
+                &.income {
+                    color: #4CAF50;
+                }
+                &.expense {
+                    color: #f44336;
+                }
+            }
+        }
+    }
+}

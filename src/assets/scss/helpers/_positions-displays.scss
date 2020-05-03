@@ -1,0 +1,42 @@
+/*-----------
+    Positions
+-----------*/
+.p-relative {
+    position: relative!important;
+}
+
+.p-absolute {
+    position: absolute!important;
+}
+
+.p-fixed {
+    position: fixed!important;
+}
+
+.p-sticky {
+    position: sticky!important;
+}
+
+/*-----------
+    Displays
+-----------*/
+
+.d-none {
+    display: none!important;
+}
+
+.d-block {
+    display: block!important;
+}
+
+.d-inline-block {
+    display: inline-block!important;
+}
+
+.d-inline {
+    display: inline!important;
+}
+
+.d-flex {
+    display: flex!important;
+}
