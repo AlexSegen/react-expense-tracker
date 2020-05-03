@@ -60,7 +60,7 @@ const TransactionsContextProvider = ({children}) => {
     },[transactions]);
 
     return ( 
-        <TransactionsContext.Provider value={{transactions, getUser, addTransaction, deleteTransaction, updateTransaction}}>
+        <TransactionsContext.Provider value={{transactions, addTransaction, deleteTransaction, updateTransaction}}>
             {children}
         </TransactionsContext.Provider>
      );

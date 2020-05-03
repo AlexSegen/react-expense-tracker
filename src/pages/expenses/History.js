@@ -1,13 +1,16 @@
-import React,{ useState } from 'react';
+import React,{ useState, useContext } from 'react';
 import styles from './history.module.scss';
 import TransactionForm from './TransactionForm';
+import { TransactionsContext } from '../../context/TransactionContext';
 
 const HistoryItem = ({title, category, amount, comments, created, id}) => {
+
+    const { deleteTransaction } = useContext(TransactionsContext);
 
     const [toggle, setToggle] = useState(false);
 
     const deleteEntry = () => {
-        console.log('Delete ', id)
+        deleteTransaction(id)
     }
 
     const handleToggle = e => {
@@ -52,6 +55,8 @@ const HistoryItem = ({title, category, amount, comments, created, id}) => {
 }
 
 const History = () => {
+
+    const { transactions } = useContext(TransactionsContext);
     
     const [showForm, setShowForm] = useState(false);
 
@@ -71,17 +76,20 @@ const History = () => {
                     </button>
                 }
             </div>
-            
 
             { !showForm && 
             <div className={styles.h__container}>
-                <HistoryItem
-                id="1"
-                title="Pago Electricidad (Enel)"
-                category="Servicio"
-                comments="Lorem ipsum dolor sit amet consectetur adipisicing elit"
-                created="2020-02-29T12:53:31Z"
-                amount={-43000}/>
+                {
+                    transactions.map(item =>
+                        <HistoryItem
+                        id={item.id}
+                        title={item.title}
+                        category={item.category}
+                        comments={item.comments}
+                        created={item.createdAt}
+                        amount={item.amount}/>)
+                }
+                
             </div>}
             
             { showForm &&

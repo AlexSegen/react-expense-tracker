@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import styles from './transaction-form.module.scss';
+import { TransactionsContext } from '../../context/TransactionContext';
 
 const TransactionForm = ({onClose}) => {
+
+    const { addTransaction } = useContext(TransactionsContext);
 
     const initialState = { title: '', category: '', amount: 0, comments: '' }
 
@@ -16,7 +19,8 @@ const TransactionForm = ({onClose}) => {
 
     const handleSubmit = e => {
         e.preventDefault();
-        console.log(transaction);
+        addTransaction(transaction);
+        setTransaction(initialState);
     }
 
     return (
