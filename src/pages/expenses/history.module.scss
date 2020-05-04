@@ -101,7 +101,7 @@
         position: relative;
 
         .add {
-            color: var(--green);
+            color: var(--gray);
             font-size: .8rem;
             padding: 5px 5px;
             white-space: nowrap;
@@ -121,11 +121,14 @@
             &:hover,
             &:focus {
                 background: #f9f9f9;   
+            }
+            &:disabled {
+                color: var(--green);
             }
         }
 
         .chart {
-            color: var(--info);
+            color: var(--gray);
             font-size: .8rem;
             padding: 5px 5px;
             white-space: nowrap;
@@ -145,6 +148,9 @@
             &:hover,
             &:focus {
                 background: #f9f9f9;   
+            }
+            &:disabled {
+                color: var(--info);
             }
         }
     }
