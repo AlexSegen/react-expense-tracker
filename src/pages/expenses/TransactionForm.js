@@ -61,7 +61,13 @@ const TransactionForm = ({onClose}) => {
                     <button
                     onClick={() => onClose('transactions')}
                      className="btn btn-outline-link btn-sm mr-2">Cerrar</button>
-                   <button className="btn btn-success btn-sm">Agregar Transacción</button>
+                    {
+                         transaction.amount > 0 && <button className="btn btn-success btn-sm">Agregar Ingreso</button>
+                    }
+
+                    {
+                         transaction.amount < 0 && <button className="btn btn-danger btn-sm">Agregar Gasto</button>
+                    }
                </div>
            </form>
         </div> 
