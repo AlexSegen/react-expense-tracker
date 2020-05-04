@@ -4,6 +4,7 @@ import { TransactionsContext } from '../../context/TransactionContext';
 import HistoryItem from './HistoryItem';
 import TransactionForm from './TransactionForm';
 import styles from './history.module.scss';
+import Chart from './ChartComponent';
 
 const History = () => {
 
@@ -11,15 +12,15 @@ const History = () => {
 
     const [view, setView] = useState('transactions')
 
-    const handleClose = () => {
-        setView('transactions');
+    const handleClose = (view) => {
+        setView(view);
     }
     
     return ( 
         <div className={styles.h__content}>
             <div className={styles.h__header}>
                 <h4 className={styles.h__title}>History</h4>
-                <button className={styles.chart} type="button">
+                <button className={styles.chart} onClick={() => setView('chart')}>
                     <svg fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
                 </button>
 
@@ -49,6 +50,8 @@ const History = () => {
             </div>}
             
             { view === 'add' && <TransactionForm onClose={handleClose}/> }
+
+            { view === 'chart' && <Chart onClose={handleClose}/> }
             
         </div>
      );

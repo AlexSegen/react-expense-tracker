@@ -21,7 +21,7 @@ const TransactionForm = ({onClose}) => {
         e.preventDefault();
         addTransaction(transaction);
         setTransaction(initialState);
-        onClose();
+        onClose('transactions');
     }
 
     return (
@@ -53,7 +53,7 @@ const TransactionForm = ({onClose}) => {
                </div>
                <div className="text-right">
                     <button
-                    onClick={() => onClose()}
+                    onClick={() => onClose('transactions')}
                      className="btn btn-outline-link btn-sm mr-2">Cancel</button>
                    <button className="btn btn-success btn-sm">Add Transaction</button>
                </div>
