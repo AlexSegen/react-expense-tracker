@@ -19,17 +19,14 @@ const History = () => {
     return ( 
         <div className={styles.h__content}>
             <div className={styles.h__header}>
-                <h4 className={styles.h__title}>History</h4>
-                <button className={styles.chart} onClick={() => setView('chart')}>
+                <h4 className={styles.h__title}>Historia</h4>
+                <button className={styles.chart} onClick={() => setView('chart')} disabled={view === 'chart'}>
                     <svg fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
                 </button>
 
-                {
-                    view !== 'add' && 
-                    <button className={styles.add} onClick={() => setView('add')}>
-                        <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" fillRule="evenodd"></path></svg>
-                    </button>
-                }
+                <button className={styles.add} onClick={() => setView('add')} disabled={view === 'add'}>
+                    <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" fillRule="evenodd"></path></svg>
+                </button>
             </div>
 
             { view === 'transactions' && 
@@ -44,7 +41,7 @@ const History = () => {
                         comments={item.comments}
                         createdAt={item.createdAt}
                         amount={item.amount}/>) :
-                        <div className="text-muted small text-center p-3">No transactions.</div>
+                        <div className="text-muted small text-center p-3">No hay transaciones.</div>
                 }
                 
             </div>}

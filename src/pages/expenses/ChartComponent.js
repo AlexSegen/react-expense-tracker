@@ -57,7 +57,7 @@ const PieChart = ({onClose}) => {
             <div className="text-right">
                 <button
                 onClick={() => onClose('transactions')}
-                    className="btn btn-outline-link btn-sm mr-2">Close</button>
+                    className="btn btn-outline-link btn-sm mr-2">Cerrar</button>
             </div>
 
         </div>

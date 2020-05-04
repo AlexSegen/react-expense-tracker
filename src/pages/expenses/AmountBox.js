@@ -25,12 +25,12 @@ const AmountBox = () => {
     return ( 
         <div className={styles.amounts__box}>
             <div className={styles.box}>
-                <span className={styles.title}>Income</span>
+                <span className={styles.title}>Ingreso</span>
                 <span className={`${styles.value} ${styles.income}`}>{formatNumber(incomes)}</span>
             </div>
             <div className={styles.box}>
-            <span className={styles.title}>Expense</span>
-                <span className={`${styles.value} ${styles.expense}`}>{formatNumber(expenses)}</span>
+            <span className={styles.title}>Gasto</span>
+                <span className={`${styles.value} ${styles.expense}`}>{formatNumber(expenses * -1)}</span>
             </div>
         </div>
      );

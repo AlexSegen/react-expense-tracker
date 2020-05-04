@@ -1,6 +1,7 @@
 import React,{ useState, useContext } from 'react';
 import { TransactionsContext } from '../../context/TransactionContext';
 import { formatNumber, formatDateTime } from '../../helpers/utils';
+import { categoryList } from '../../helpers/constants';
 
 import styles from './history-item.module.scss';
 
@@ -9,6 +10,7 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id}) => {
     const { deleteTransaction } = useContext(TransactionsContext);
 
     const [toggle, setToggle] = useState(false);
+    const [categories] = useState(categoryList);
 
     const deleteEntry = () => {
         deleteTransaction(id)
@@ -19,13 +21,18 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id}) => {
         setToggle(!toggle)
     }
 
+    const getCategoryLabel = str => {
+        const active = categories.find(item => item.value === str);
+        return active ? active.label : 'Otroxx';
+    }
+
     return (
         <div className={styles.h__item}>
             <div className={`${styles.header} ${amount < 0 && styles.expense }`}>
                 <div className={styles.details} onClick={handleToggle}>
                     <div className={styles.description}>
                         <span className={styles.title}>{title}</span>
-                        <span className={styles.category}>{category}</span>
+                        <span className={styles.category}>{getCategoryLabel(category)}</span>
                     </div>
                     <div className={styles.amount}>
                         {formatNumber(amount)}
@@ -39,7 +46,7 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id}) => {
             { toggle &&
                 <div className={styles.body}>
     
-                    <p className={styles.title}>Created</p>
+                    <p className={styles.title}>Creado</p>
                     <div className={styles.desc}>
                         {formatDateTime(createdAt)}
                     </div>
