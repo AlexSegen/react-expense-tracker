@@ -103,7 +103,31 @@
         .add {
             color: var(--green);
             font-size: .8rem;
-            padding: 5px 15px;
+            padding: 5px 5px;
+            white-space: nowrap;
+            background: #fff;
+            border: 1px solid #f9f9f9;
+            margin-left: 10px;
+            transition: all ease-in-out .1s;
+            border-radius: 3px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            svg {
+                width: 20px;
+                height: 20px;
+                margin-right: 5px;
+            }
+            &:hover,
+            &:focus {
+                background: #f9f9f9;   
+            }
+        }
+
+        .chart {
+            color: var(--info);
+            font-size: .8rem;
+            padding: 5px 5px;
             white-space: nowrap;
             background: #fff;
             border: 1px solid #f9f9f9;

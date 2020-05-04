@@ -8,27 +8,30 @@ import styles from './history.module.scss';
 const History = () => {
 
     const { transactions } = useContext(TransactionsContext);
-    
-    const [showForm, setShowForm] = useState(false);
+
+    const [view, setView] = useState('transactions')
 
     const handleClose = () => {
-        setShowForm(false)
+        setView('transactions');
     }
     
     return ( 
         <div className={styles.h__content}>
             <div className={styles.h__header}>
                 <h4 className={styles.h__title}>History</h4>
+                <button className={styles.chart} type="button">
+                    <svg fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
+                </button>
+
                 {
-                    !showForm && 
-                    <button className={styles.add} onClick={() => setShowForm(!showForm)}>
+                    view !== 'add' && 
+                    <button className={styles.add} onClick={() => setView('add')}>
                         <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 18a8 8 0 100-16 8 8 0 000 16zm1-11a1 1 0 10-2 0v2H7a1 1 0 100 2h2v2a1 1 0 102 0v-2h2a1 1 0 100-2h-2V7z" clipRule="evenodd" fillRule="evenodd"></path></svg>
-                        Add transaction
                     </button>
                 }
             </div>
 
-            { !showForm && 
+            { view === 'transactions' && 
             <div className={styles.h__container}>
                 {
                   transactions && transactions.length > 0 ? transactions.map(item =>
@@ -45,7 +48,7 @@ const History = () => {
                 
             </div>}
             
-            { showForm && <TransactionForm onClose={handleClose}/> }
+            { view === 'add' && <TransactionForm onClose={handleClose}/> }
             
         </div>
      );
