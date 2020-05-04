@@ -1,3 +1,5 @@
+import firestore from 'firebase/firestore'
+import * as firebase from 'firebase';
 require('dotenv').config()
 
 export const firebaseConfig = {
@@ -9,3 +11,9 @@ export const firebaseConfig = {
     messagingSenderId: process.env.REACT_APP_MESSAGING_SENDER_ID,
     appId: process.env.REACT_APP_APP_ID
 }
+
+firebase.initializeApp(firebaseConfig);
+
+export const database = firebase.database();
+
+export default firebase;

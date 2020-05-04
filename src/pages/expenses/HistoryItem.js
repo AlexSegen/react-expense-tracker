@@ -5,7 +5,7 @@ import { categoryList } from '../../helpers/constants';
 
 import styles from './history-item.module.scss';
 
-const HistoryItem = ({title, category, amount, comments, createdAt, id}) => {
+const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) => {
 
     const { deleteTransaction } = useContext(TransactionsContext);
 
@@ -13,7 +13,7 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id}) => {
     const [categories] = useState(categoryList);
 
     const deleteEntry = () => {
-        deleteTransaction(id)
+        deleteTransaction(doc)
     }
 
     const handleToggle = e => {

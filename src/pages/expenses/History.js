@@ -42,6 +42,7 @@ const History = () => {
                   transactions && transactions.length > 0 ? transactions.map(item =>
                         <HistoryItem
                         key={item.id}
+                        doc={item.key}
                         id={item.id}
                         title={item.title}
                         category={item.category}
