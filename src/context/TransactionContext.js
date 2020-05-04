@@ -4,8 +4,6 @@ import { v4 as uuidv4 } from 'uuid';
 
 export const TransactionsContext = createContext();
 
-const storageName = 'transactions';
-
 const TransactionsContextProvider = ({children}) => {
 
     const [transactions, setTransactions] = useState([]);
@@ -13,10 +11,6 @@ const TransactionsContextProvider = ({children}) => {
     const loadStorage = async () => {
         const records = await list();
         setTransactions(records ? records : []);
-    }
-
-    const setStorage = () => {
-        localStorage.setItem(storageName, JSON.stringify(transactions));
     }
 
     const addTransaction = async ({title, category, amount, comments }) => {
@@ -58,10 +52,6 @@ const TransactionsContextProvider = ({children}) => {
     useEffect(() => {
         loadStorage();
     },[]);
-
-    useEffect(() => {
-        setStorage();
-    },[transactions]);
 
     return ( 
         <TransactionsContext.Provider value={{transactions, addTransaction, deleteTransaction, updateTransaction}}>
