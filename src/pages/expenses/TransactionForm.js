@@ -2,6 +2,8 @@ import React, { useState, useContext } from 'react';
 import styles from './transaction-form.module.scss';
 import { TransactionsContext } from '../../context/TransactionContext';
 
+import { categoryList } from '../../helpers/constants';
+
 const TransactionForm = ({onClose}) => {
 
     const { addTransaction } = useContext(TransactionsContext);
@@ -9,6 +11,7 @@ const TransactionForm = ({onClose}) => {
     const initialState = { title: '', category: '', amount: 0, comments: '' }
 
     const [transaction, setTransaction] = useState(initialState);
+    const [categories] = useState(categoryList);
 
     const handleInputs = e => {
         setTransaction({
@@ -35,12 +38,11 @@ const TransactionForm = ({onClose}) => {
                     <label className="small text-muted" htmlFor="category">Category</label>
                     <select onChange={handleInputs} value={transaction.category} className="form-control form-control-sm" name="category" id="category">
                         <option value="0">---</option>
-                        <option value="service">Service</option>
-                        <option value="medicine">Medicine</option>
-                        <option value="food">Food</option>
-                        <option value="transport">Transport</option>
-                        <option value="salary">Salary</option>
-                        <option value="other">Other</option>
+                        {
+                            categories.map(item => (
+                                <option key={item.value} value={item.value}>{item.label}</option>
+                            ))
+                        }
                     </select>
                </div>
                <div className="form-group mb-2">

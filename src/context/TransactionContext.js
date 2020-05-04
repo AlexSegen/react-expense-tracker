@@ -18,9 +18,6 @@ const TransactionsContextProvider = ({children}) => {
         localStorage.setItem(storageName, JSON.stringify(transactions));
     }
 
-    const getUser = id => {
-        return transactions.find(u => u.id === id)
-    }
     const addTransaction = ({title, category, amount, comments }) => {
         setTransactions([
             ...transactions,
