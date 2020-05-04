@@ -36,7 +36,10 @@ const TransactionForm = ({onClose}) => {
                     <select onChange={handleInputs} value={transaction.category} className="form-control form-control-sm" name="category" id="category">
                         <option value="0">---</option>
                         <option value="service">Service</option>
+                        <option value="medicine">Medicine</option>
                         <option value="food">Food</option>
+                        <option value="transport">Transport</option>
+                        <option value="salary">Salary</option>
                         <option value="other">Other</option>
                     </select>
                </div>
