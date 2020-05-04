@@ -1,4 +1,4 @@
-import React,{ useEffect, useRef, useContext } from 'react';
+import React,{ useEffect, useRef, useContext, useState } from 'react';
 import Chart from 'chart.js';
 
 import { TransactionsContext } from '../../context/TransactionContext';
@@ -9,6 +9,8 @@ import styles from './chart.module.scss'
 const PieChart = ({onClose}) => {
 
     const { transactions } = useContext(TransactionsContext);
+    const [selectedChart, setSelectedChart] = useState('pie');
+    const [expenses, setExpenses] = useState([]);
 
     const myChart = useRef(null);
 
@@ -21,6 +23,9 @@ const PieChart = ({onClose}) => {
                 return current.amount < 0 ? prev + current.amount : prev + 0
             }, 0) * -1);
         }
+
+        setExpenses([...data]);
+        console.log([...data]);
 
         new Chart(myChart.current, {
             type: 'pie',
@@ -41,16 +46,23 @@ const PieChart = ({onClose}) => {
                 }],
                 labels: categoryList.map(item => item.label)
             }
-
         });
+
     }
 
     useEffect(() => {
         loadChart()
-    })
+    }, []);
 
     return ( 
         <div className={styles.chart__container}>
+    
+            <div className="form-group" style={{maxWidth: "150px", margin: "0 auto 20px"}}>
+                <select className="form-control form-control-sm" onChange={e => setSelectedChart(e.target.value)} value={selectedChart}>
+                    <option value="pie">Pie Chart</option>
+                    <option value="bar">Bar Chart</option>
+                </select>
+            </div>
 
             <canvas ref={myChart} width="350" height="350"></canvas>
 
