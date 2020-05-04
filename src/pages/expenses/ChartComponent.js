@@ -10,7 +10,6 @@ const PieChart = ({onClose}) => {
 
     const { transactions } = useContext(TransactionsContext);
     const [selectedChart, setSelectedChart] = useState('pie');
-    const [expenses, setExpenses] = useState([]);
 
     const myChart = useRef(null);
 
@@ -24,11 +23,8 @@ const PieChart = ({onClose}) => {
             }, 0) * -1);
         }
 
-        setExpenses([...data]);
-        console.log([...data]);
-
         new Chart(myChart.current, {
-            type: 'pie',
+            type: selectedChart,
             data: {
                 datasets: [{
                     data: data,
@@ -47,12 +43,11 @@ const PieChart = ({onClose}) => {
                 labels: categoryList.map(item => item.label)
             }
         });
-
     }
 
     useEffect(() => {
         loadChart()
-    }, []);
+    }, [selectedChart, transactions]);
 
     return ( 
         <div className={styles.chart__container}>
