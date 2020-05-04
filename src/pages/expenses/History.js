@@ -20,6 +20,13 @@ const History = () => {
         <div className={styles.h__content}>
             <div className={styles.h__header}>
                 <h4 className={styles.h__title}>Historia</h4>
+
+                
+
+                <button className={styles.list} onClick={() => setView('transactions')} disabled={view === 'transactions'}>
+                    <svg fill="currentColor" viewBox="0 0 20 20"><path d="M3 5a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zM3 10a1 1 0 011-1h6a1 1 0 110 2H4a1 1 0 01-1-1zM3 15a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clipRule="evenodd" fillRule="evenodd"></path></svg>
+                </button>
+
                 <button className={styles.chart} onClick={() => setView('chart')} disabled={view === 'chart'}>
                     <svg fill="currentColor" viewBox="0 0 20 20"><path d="M2 10a8 8 0 018-8v8h8a8 8 0 11-16 0z"></path><path d="M12 2.252A8.014 8.014 0 0117.748 8H12V2.252z"></path></svg>
                 </button>
