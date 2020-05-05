@@ -1,30 +1,49 @@
-import React, {useState, createContext} from 'react';
+import React, {useState, useEffect, createContext} from 'react';
 
 export const ThemeContext = createContext();
 
+const storageName = 'theme';
+
 const ThemeContextProvider = ({children}) => {
 
-    const light = { bg: "#ffffff", text: "#111111", ui: "#f9f9f9" }
-    const dark = { bg: "#212121", text: "#eeeeee", ui: "#212529" }
+    const lightTheme = { bg: "#ffffff", text: "#111111", ui: "#f9f9f9" }
+    const darkTheme = { bg: "#212121", text: "#eeeeee", ui: "#212529" }
 
-    const [lightTheme, setLightTheme] = useState(true)
-    const [theme, setTheme] = useState({
+    const initialState = {
         light: true,
-        ...light
-    });
+        ...lightTheme
+    }
+
+    const [theme, setTheme] = useState(initialState);
+
+    const loadStorage = () => {
+        const storage = localStorage.getItem(storageName);
+        setTheme(storage ? JSON.parse(storage) : initialState)
+    }
 
     const toggleTheme = () => {
-        setLightTheme(!lightTheme);
+        let { light } = theme;
+        light = !light
+        const styles = light ? lightTheme : darkTheme
         setTheme({
-            light: lightTheme,
-            ...lightTheme ? light : dark
+            light,
+            ...styles
         });
+        
+        localStorage.setItem(storageName, JSON.stringify({
+            light,
+            ...styles
+        }))
     }
 
     const contextValues = {
         toggleTheme,
         theme
     }
+
+    useEffect(()=> {
+        loadStorage()
+    },[])
 
     return ( 
         <ThemeContext.Provider value={contextValues}>
