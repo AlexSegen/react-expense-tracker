@@ -48,7 +48,7 @@ const PieChart = ({onClose}) => {
 
     useEffect(() => {
         loadChart()
-    }, [selectedChart, transactions]);
+    }, [selectedChart]);
 
     return ( 
         <div className={styles.chart__container}>
