@@ -27,7 +27,8 @@ const PieChart = ({onClose}) => {
             type: selectedChart,
             data: {
                 datasets: [{
-                    data: data,
+                    label: "Gastos",
+                    data,
                     backgroundColor: [
                         '#3F51B5',
                         '#9FA8DA',
