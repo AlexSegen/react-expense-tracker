@@ -4,10 +4,12 @@ import { formatNumber, formatDateTime } from '../../helpers/utils';
 import { categoryList } from '../../helpers/constants';
 
 import styles from './history-item.module.scss';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) => {
 
     const { deleteTransaction } = useContext(TransactionsContext);
+    const { theme } = useContext(ThemeContext);
 
     const [toggle, setToggle] = useState(false);
     const [categories] = useState(categoryList);
@@ -23,7 +25,7 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) =>
 
     const getCategoryLabel = str => {
         const active = categories.find(item => item.value === str);
-        return active ? active.label : 'Otroxx';
+        return active ? active.label : 'Otro';
     }
 
     return (
@@ -38,28 +40,38 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) =>
                         {formatNumber(amount)}
                     </div>
                 </div>
-                <button onClick={deleteEntry} className={styles.action} type="button">
+                <button
+                style={{
+                    background: theme.ui,
+                    borderColor: theme.ui
+                }} 
+                onClick={deleteEntry} className={styles.action} type="button">
                     <svg fill="currentColor" viewBox="0 0 20 20"><path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path></svg>
                 </button>
             </div>
 
             { toggle &&
-                <div className={styles.body}>
-    
-                    <p className={styles.title}>Creado</p>
-                    <div className={styles.desc}>
-                        {formatDateTime(createdAt)}
-                    </div>
+                <div
+                style={{
+                    background: theme.ui,
+                    borderColor: theme.ui
+                }} 
+                 className={styles.body}>
 
                     {
                      comments && 
                      <>
-                        <p className={styles.title}>Comments</p>
+                        <p className={styles.title}>Comentarios</p>
                         <div className={styles.desc}>
                             {comments}
                         </div>
                      </>   
                     }
+    
+                    <p className={styles.title}>Creado</p>
+                    <div className={styles.desc}>
+                        {formatDateTime(createdAt)}
+                    </div>
 
                 </div>
             }

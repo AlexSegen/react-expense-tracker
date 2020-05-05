@@ -1,12 +1,14 @@
 import React, { useState, useContext } from 'react';
 import styles from './transaction-form.module.scss';
 import { TransactionsContext } from '../../context/TransactionContext';
+import { ThemeContext }  from '../../context/ThemeContext';
 
 import { categoryList } from '../../helpers/constants';
 
 const TransactionForm = ({onClose}) => {
 
     const { addTransaction } = useContext(TransactionsContext);
+    const { theme } = useContext(ThemeContext);
 
     const initialState = { title: '', category: '', amount: "", comments: '' }
 
@@ -32,7 +34,12 @@ const TransactionForm = ({onClose}) => {
     }
 
     return (
-        <div className={styles.f__container}>
+        <div 
+        style={{
+            background: theme.bg,
+            color: theme.text
+        }}
+        className={styles.f__container}>
            <form onSubmit={handleSubmit}>
                <div className="form-group mb-2">
                    <label className="small text-muted" htmlFor="title">Título</label>

@@ -2,10 +2,12 @@ import React, { useContext, useState, useEffect } from 'react';
 import { TransactionsContext } from '../../context/TransactionContext';
 import { formatNumber} from '../../helpers/utils';
 import styles from './amount-box.module.scss';
+import { ThemeContext } from '../../context/ThemeContext';
 
 const AmountBox = () => {
 
     const { transactions } = useContext(TransactionsContext);
+    const { theme } = useContext(ThemeContext);
 
     const [incomes, setIncomes] = useState(0);
     const [expenses, setExpenses] = useState(0);
@@ -23,7 +25,11 @@ const AmountBox = () => {
     }, [transactions]);
 
     return ( 
-        <div className={styles.amounts__box}>
+        <div className={styles.amounts__box}
+        style={{
+            background: theme.ui,
+            color: theme.text
+        }}>
             <div className={styles.box}>
                 <span className={styles.title}>Ingreso</span>
                 <span className={`${styles.value} ${styles.income}`}>{formatNumber(incomes)}</span>

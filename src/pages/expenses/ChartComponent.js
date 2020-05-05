@@ -2,6 +2,7 @@ import React,{ useEffect, useRef, useContext, useState } from 'react';
 import Chart from 'chart.js';
 
 import { TransactionsContext } from '../../context/TransactionContext';
+import { ThemeContext } from '../../context/ThemeContext'; 
 import { categoryList } from '../../helpers/constants';
 
 import styles from './chart.module.scss'
@@ -9,6 +10,8 @@ import styles from './chart.module.scss'
 const PieChart = ({onClose}) => {
 
     const { transactions } = useContext(TransactionsContext);
+    const { theme } = useContext(ThemeContext);
+
     const [selectedChart, setSelectedChart] = useState('pie');
 
     const myChart = useRef(null);
@@ -51,7 +54,12 @@ const PieChart = ({onClose}) => {
     }, [selectedChart]);
 
     return ( 
-        <div className={styles.chart__container}>
+        <div 
+        style={{
+            background: theme.bg,
+            color: theme.text
+        }}
+        className={styles.chart__container}>
     
             <div className="form-group" style={{maxWidth: "150px", margin: "0 auto 20px"}}>
                 <select className="form-control form-control-sm" onChange={e => setSelectedChart(e.target.value)} value={selectedChart}>

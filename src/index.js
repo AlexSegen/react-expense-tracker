@@ -6,12 +6,14 @@ import { firebaseConfig } from './config/firebase.config';
 import {
   FirebaseAppProvider
 } from 'reactfire';
-
+import ThemeContextProvider from './context/ThemeContext'
 ReactDOM.render(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <React.StrictMode>
       <Suspense fallback={'Cargando...'}>
-        <Router />
+        <ThemeContextProvider>
+          <Router />
+        </ThemeContextProvider>
       </Suspense>
     </React.StrictMode>
   </FirebaseAppProvider>,

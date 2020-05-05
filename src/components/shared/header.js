@@ -14,8 +14,6 @@ const Header = () => {
 
     return ( 
         <header className={styles.header}>
-            <Link className="btn btn-sm btn-link" to='/'>Home</Link>
-            { user && <Link className="btn btn-sm btn-link" to='/expenses'>Expenses</Link> }
             { user && <button className="btn btn-sm btn-link" type="button" onClick={SignOut} >Sign Out</button>}
             { !user &&  <Link className="btn btn-sm btn-link" to='/login'>Login</Link> }
         </header>
