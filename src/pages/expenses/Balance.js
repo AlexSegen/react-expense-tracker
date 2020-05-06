@@ -17,7 +17,7 @@ const Balance = () => {
 
     return ( 
         <div className={styles.balance__box}>
-            <span className={styles.balance__title}>Balance actual</span>
+            <span className={styles.balance__title}>Balance</span>
             <span className={styles.balance__amount}>{formatNumber(sum)}</span>
         </div>
      );

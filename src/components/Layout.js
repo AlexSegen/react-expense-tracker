@@ -11,8 +11,7 @@ const Layout = ({children}) => {
         <div 
         style={{
             background: theme.bg,
-            color: theme.text,
-            minHeight: "100vh"
+            color: theme.text
         }}
         className="app__container">
             <Header/>
