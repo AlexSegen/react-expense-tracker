@@ -4,7 +4,7 @@ import styles from './footer.module.scss';
 const Footer = () => {
     return ( 
         <footer className={styles.footer}>
-            Pixeagil React Boilerplate 2020
+            &copy; 2020 - AlexSegen
         </footer>
      );
 }

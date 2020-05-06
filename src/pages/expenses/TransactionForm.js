@@ -41,14 +41,12 @@ const TransactionForm = ({onClose}) => {
         }}
         className={styles.f__container}>
            <form onSubmit={handleSubmit}>
-               <div className="form-group mb-2">
-                   <label className="small text-muted" htmlFor="title">Título</label>
-                   <input onChange={handleInputs} value={transaction.title}  type="text" name="title" id="title" className="form-control form-control-sm"/>
+               <div className="form-group mb-3">
+                   <input onChange={handleInputs} value={transaction.title} placeholder="Títutlo"  type="text" name="title" id="title" className="form-control form-control-sm"/>
                </div>
-               <div className="form-group mb-2">
-                    <label className="small text-muted" htmlFor="category">Categoría</label>
+               <div className="form-group mb-3">
                     <select onChange={handleInputs} value={transaction.category} className="form-control form-control-sm" name="category" id="category">
-                        <option value="0">---</option>
+                        <option value="0">Selecionar categoría</option>
                         {
                             categories.map(item => (
                                 <option key={item.value} value={item.value}>{item.label}</option>
@@ -56,13 +54,11 @@ const TransactionForm = ({onClose}) => {
                         }
                     </select>
                </div>
-               <div className="form-group mb-2">
-                   <label className="small text-muted" htmlFor="amount">Monto</label>
-                   <input onChange={handleInputs} value={transaction.amount} type="number" name="amount" id="amount" className="form-control form-control-sm text-right"/>
+               <div className="form-group mb-3">
+                   <input onChange={handleInputs} value={transaction.amount} placeholder="Monto" type="number" name="amount" id="amount" className="form-control text-center"/>
                </div>
                <div className="form-group">
-                   <label className="small text-muted" htmlFor="comments">Comentarios</label>
-                   <textarea  onChange={handleInputs} value={transaction.comments} name="comments" id="comments" className="form-control form-control-sm" cols="30" rows="2"></textarea>
+                   <textarea  onChange={handleInputs} value={transaction.comments} placeholder="Comentarios" name="comments" id="comments" className="form-control form-control-sm" cols="30" rows="2"></textarea>
                </div>
                <div className="text-right">
                     <button

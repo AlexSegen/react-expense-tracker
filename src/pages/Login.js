@@ -40,19 +40,17 @@ const Login = () => {
                     <p>You can go <Link className="btn btn-sm btn-link" to="/">Home</Link> or <button type="buttton" className="btn btn-sm btn-link" onClick={SignOut}>Sign Out</button></p>
                 </div> :
                 <div style={center}>
-                    <h1>Login</h1>
-                    <p>This is the Login Page.</p>
+                    <h1 style={{fontSize: "1.2rem", margin: "0 0 5px"}}>Iniciar sesión</h1>
+                    <p className="text-muted">Ingresa tus datos</p>
                     <div className="text-left">
                         <div className="form-group">
-                            <label htmlFor="email">Email</label>
-                            <input className="form-control" type="email" name="email" onChange={(e) => setEmail(e.target.value) } />
+                            <input className="form-control" type="email" name="email" placeholder="Correo" onChange={(e) => setEmail(e.target.value) } />
                         </div>
                         <div className="form-group">
-                            <label htmlFor="password">Password</label>
-                            <input className="form-control" type="password" name="password" onChange={(e) => setPassword(e.target.value) }/>
+                            <input className="form-control" type="password" name="password" placeholder="Contraseña" onChange={(e) => setPassword(e.target.value) }/>
                         </div>
-                        <div className="form-group">
-                            <button onClick={handleSubmit} type="button" className="btn btn-primary">Login</button>
+                        <div className="form-group text-center">
+                            <button onClick={handleSubmit} type="button" className="btn btn-primary">Ingresar</button>
                         </div>
                     </div>
                 </div>
