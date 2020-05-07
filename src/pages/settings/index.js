@@ -1,11 +1,12 @@
 import React, { useContext } from 'react';
 import Layout from '../../components/Layout';
-import { GlobeIcon, DollarIcon, MoonIcon, SunIcon } from '../../components/icons';
+import { GlobeIcon, DollarIcon, MoonIcon, SunIcon, TagIcon } from '../../components/icons';
 import styles from './index.module.scss';
 
 import { useTranslation } from "react-i18next";
 import { ThemeContext } from '../../context/ThemeContext';
 import { LangContext } from '../../context/LangContext';
+import { Link } from 'react-router-dom';
 
 const TrackerSettings = () => {
 
@@ -55,6 +56,19 @@ const TrackerSettings = () => {
                         <DollarIcon/>
                         <span>{currentCurrency === 'CLP' ? 'CLP' : 'USD'}</span>
                     </button>
+
+                    <Link
+                    to="/categories"
+                    className={styles.grid__item}
+                    style={{
+                        borderColor: theme.ui,
+                        background: theme.ui,
+                        color: theme.text
+                    }}
+                     >
+                        <TagIcon/>
+                        <span>Categorías</span>
+                    </Link>
 
                 </div>
             </div>

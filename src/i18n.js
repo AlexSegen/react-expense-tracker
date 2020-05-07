@@ -29,7 +29,11 @@ i18n
             "add expense":"Add expense",
             "createdAt":"Created",
             "settings page":"Settings",
-            "settings description":"Customize your Expense Tracker"
+            "settings description":"Customize your Expense Tracker",
+            "categories page": "Categories",
+            "categories description":"Manage your expenses and incomes categories.",
+            "add category":"Add category",
+            "category name":"Name"
         }
       },
       es: {
@@ -53,7 +57,11 @@ i18n
             "add expense":"Agregar gasto",
             "createdAt":"Creado",
             "settings page":"Configuración",
-            "settings description":"Personaliza tu Expense Tracker"
+            "settings description":"Personaliza tu Expense Tracker",
+            "categories page": "Categorías",
+            "categories description":"Gestiona las categorías de tus gastos e ingresos.",
+            "add category":"Agregar categoría",
+            "category name":"Nombre"
         }
       }
     },
