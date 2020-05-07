@@ -10,10 +10,12 @@ import AmountBox from './AmountBox';
 import Chart from './chart/ChartComponent';
 import TransactionForm from './transaction-form/TransactionForm';
 import { ListIcon, PlusCircleIcon, ChartIcon } from '../../components/icons';
+import { TransactionsContext } from '../../context/TransactionContext';
 
 const Expenses = () => {
 
-    const { theme } =useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
+    const { filterTransactions, isFiltered } = useContext(TransactionsContext);
 
     const [view, setView] = useState('transactions')
 
@@ -36,6 +38,12 @@ const Expenses = () => {
                 className={styles.h__content}>
                 <div className={styles.h__header}>
                     <h4 className={styles.h__title}>Historia</h4>
+
+                    <button 
+                    className={`${styles.list} ${theme.light ? null : styles.dark}`}
+                    onClick={() => filterTransactions(isFiltered ? false : true)}>
+                        Filter
+                    </button>
 
                     <button 
                     className={`${styles.list} ${theme.light ? null : styles.dark}`}
