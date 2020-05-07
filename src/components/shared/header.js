@@ -4,10 +4,10 @@ import styles from './header.module.scss';
 import { ThemeContext} from '../../context/ThemeContext';
 import { useFirebaseApp, useUser } from 'reactfire';
 
-import { SettingsIcon, BulbIcon, SignOutIcon } from '../icons';
+import { SettingsIcon, SignOutIcon } from '../icons';
 
 const Header = () => {
-    const { theme, toggleTheme } = useContext(ThemeContext);
+    const { theme } = useContext(ThemeContext);
     const firebase = useFirebaseApp();
     const user = useUser();
 
@@ -28,10 +28,6 @@ const Header = () => {
                      className={styles.action}>
                         <SettingsIcon/>
                     </Link>
-                    <button className={`${styles.action} ${styles.bulb}`} type="button" onClick={toggleTheme}>
-                        <BulbIcon/>
-                    </button>
-
                     <button className={styles.action} type="button" onClick={SignOut}>
                         <SignOutIcon/>
                     </button>

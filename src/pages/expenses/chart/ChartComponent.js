@@ -1,13 +1,17 @@
 import React,{ useEffect, useRef, useContext, useState } from 'react';
-import Chart from 'chart.js';
 
 import { TransactionsContext } from '../../../context/TransactionContext';
 import { ThemeContext } from '../../../context/ThemeContext'; 
 import { categoryList } from '../../../helpers/constants';
 
+import Chart from 'chart.js';
+import { useTranslation } from "react-i18next";
+
 import styles from './chart.module.scss'
 
-const PieChart = ({onClose}) => {
+const PieChart = () => {
+
+    const { t } = useTranslation();
 
     const { transactions } = useContext(TransactionsContext);
     const { theme } = useContext(ThemeContext);
@@ -71,7 +75,7 @@ const PieChart = ({onClose}) => {
             <canvas ref={myChart} width="350" height="350"></canvas>
 
             <div className="text-right text-muted small">
-                Gráfico de gastos
+            {t("expense chart")}
             </div>
 
         </div>

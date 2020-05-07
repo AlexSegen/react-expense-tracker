@@ -1,0 +1,40 @@
+.s {
+    &__title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin: 0 0 15px;
+    }
+
+    &__description {
+        font-size: .9rem;
+    }
+    &__content {
+        min-height: 350px;
+    }
+    
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    grid-gap: 15px;
+
+    &__item {
+        font-size: .8rem;
+        padding: 10px;
+        text-align: center;
+        background: #f9f9f9;
+        border: 1px solid #f9f9f9;
+        border-radius: 3px;
+
+        span {
+            opacity: .7;
+        }
+        svg {
+            width: 35px;
+            display: block;
+            margin: 0 auto 5px;
+        }
+
+    }
+}

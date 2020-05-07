@@ -11,8 +11,10 @@ import Chart from './chart/ChartComponent';
 import TransactionForm from './transaction-form/TransactionForm';
 import { ListIcon, PlusCircleIcon, ChartIcon, ClockIcon, FilterIcon } from '../../components/icons';
 import { TransactionsContext } from '../../context/TransactionContext';
+import { useTranslation } from "react-i18next";
 
 const Expenses = () => {
+    const { t } = useTranslation();
 
     const { theme } = useContext(ThemeContext);
     const { allTransactions, filterTransactions, isFiltered } = useContext(TransactionsContext);
@@ -37,7 +39,8 @@ const Expenses = () => {
                 }}
                 className={styles.h__content}>
                 <div className={styles.h__header}>
-                <h4 className={styles.h__title}>Historia <br/><small className="text-muted">{ isFiltered ? 'Mes anterior' : 'Mes en curso' }</small></h4>
+                <h4 className={styles.h__title}>{t("history")} 
+                <br/><small className="text-muted">{ isFiltered ? t("past month") : t("current month") }</small></h4>
 
                     <button 
                     className={`${styles.action} ${!theme.light && styles.dark} ${styles.add}`}

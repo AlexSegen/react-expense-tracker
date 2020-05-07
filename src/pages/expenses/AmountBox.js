@@ -3,8 +3,11 @@ import { TransactionsContext } from '../../context/TransactionContext';
 import { formatNumber} from '../../helpers/utils';
 import styles from './amount-box.module.scss';
 import { ThemeContext } from '../../context/ThemeContext';
+import { useTranslation } from "react-i18next";
 
 const AmountBox = () => {
+
+    const { t } = useTranslation();
 
     const { transactions } = useContext(TransactionsContext);
     const { theme } = useContext(ThemeContext);
@@ -31,11 +34,11 @@ const AmountBox = () => {
             color: theme.text
         }}>
             <div className={styles.box}>
-                <span className={styles.title}>Ingreso</span>
+                <span className={styles.title}>{t("income")}</span>
                 <span className={`${styles.value} ${styles.income}`}>{formatNumber(incomes)}</span>
             </div>
             <div className={styles.box}>
-            <span className={styles.title}>Gasto</span>
+            <span className={styles.title}>{t("expense")}</span>
                 <span className={`${styles.value} ${styles.expense}`}>{formatNumber(expenses * -1)}</span>
             </div>
         </div>

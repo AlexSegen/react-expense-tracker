@@ -6,7 +6,10 @@ import { categoryList } from '../../helpers/constants';
 import styles from './history-item.module.scss';
 import { ThemeContext } from '../../context/ThemeContext';
 
+import { useTranslation } from "react-i18next";
+
 const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) => {
+    const { t } = useTranslation();
 
     const { deleteTransaction } = useContext(TransactionsContext);
     const { theme } = useContext(ThemeContext);
@@ -25,7 +28,7 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) =>
 
     const getCategoryLabel = str => {
         const active = categories.find(item => item.value === str);
-        return active ? active.label : 'Otro';
+        return active ? active.label : '';
     }
 
     return (
@@ -61,14 +64,14 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) =>
                     {
                      comments && 
                      <>
-                        <p className={styles.title}>Comentarios</p>
+                        <p className={styles.title}>{t("comments")}</p>
                         <div className={styles.desc}>
                             {comments}
                         </div>
                      </>   
                     }
     
-                    <p className={styles.title}>Creado</p>
+                    <p className={styles.title}>{t("createdAt")}</p>
                     <div className={styles.desc}>
                         {formatDateTime(createdAt)}
                     </div>
