@@ -1,9 +1,9 @@
 import React, { useState, useContext } from 'react';
 import styles from './transaction-form.module.scss';
-import { TransactionsContext } from '../../context/TransactionContext';
-import { ThemeContext }  from '../../context/ThemeContext';
+import { TransactionsContext } from '../../../context/TransactionContext';
+import { ThemeContext }  from '../../../context/ThemeContext';
 
-import { categoryList } from '../../helpers/constants';
+import { categoryList } from '../../../helpers/constants';
 
 const TransactionForm = ({onClose}) => {
 

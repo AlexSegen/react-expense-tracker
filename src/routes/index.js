@@ -9,9 +9,10 @@ import {
 import 'firebase/auth';
 import { useUser } from 'reactfire';
 
-import About from './pages/About';
-import Login from  './pages/Login';
-import Expenses from "./pages/expenses";
+import About from '../pages/About';
+import Login from  '../pages/Login';
+import Expenses from "../pages/expenses";
+import TrackerSettings from '../pages/settings'
 
 const MainRouter = () => {
   return (
@@ -19,6 +20,9 @@ const MainRouter = () => {
         <Switch>
         <PrivateRoute exact path="/">
             <Expenses />
+        </PrivateRoute>
+        <PrivateRoute exact path="/settings">
+            <TrackerSettings />
         </PrivateRoute>
           <Route path="/about">
             <About />

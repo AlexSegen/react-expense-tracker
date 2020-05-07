@@ -1,19 +1,16 @@
 import React, { Suspense } from 'react';
 import ReactDOM from 'react-dom';
-import Router from './Router';
+import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { firebaseConfig } from './config/firebase.config';
 import {
   FirebaseAppProvider
 } from 'reactfire';
-import ThemeContextProvider from './context/ThemeContext'
 ReactDOM.render(
   <FirebaseAppProvider firebaseConfig={firebaseConfig}>
     <React.StrictMode>
       <Suspense fallback={'Cargando...'}>
-        <ThemeContextProvider>
-          <Router />
-        </ThemeContextProvider>
+          <App />
       </Suspense>
     </React.StrictMode>
   </FirebaseAppProvider>,

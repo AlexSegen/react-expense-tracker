@@ -1,9 +1,9 @@
 import React,{ useEffect, useRef, useContext, useState } from 'react';
 import Chart from 'chart.js';
 
-import { TransactionsContext } from '../../context/TransactionContext';
-import { ThemeContext } from '../../context/ThemeContext'; 
-import { categoryList } from '../../helpers/constants';
+import { TransactionsContext } from '../../../context/TransactionContext';
+import { ThemeContext } from '../../../context/ThemeContext'; 
+import { categoryList } from '../../../helpers/constants';
 
 import styles from './chart.module.scss'
 
