@@ -1,17 +1,19 @@
 import React, { useState, useContext } from 'react';
 import Layout from '../../components/Layout';
-import styles from './index.module.scss';
 
 import { ThemeContext } from '../../context/ThemeContext';
+import { TransactionsContext } from '../../context/TransactionContext';
+
+import { useTranslation } from "react-i18next";
 
 import Balance from './Balance';
 import History from './History';
 import AmountBox from './AmountBox';
 import Chart from './chart/ChartComponent';
 import TransactionForm from './transaction-form/TransactionForm';
-import { ListIcon, PlusCircleIcon, ChartIcon, ClockIcon, FilterIcon } from '../../components/icons';
-import { TransactionsContext } from '../../context/TransactionContext';
-import { useTranslation } from "react-i18next";
+import { ListIcon, PlusCircleIcon, ChartIcon, FilterIcon } from '../../components/icons';
+
+import styles from './index.module.scss';
 
 const Expenses = () => {
     const { t } = useTranslation();
@@ -68,13 +70,11 @@ const Expenses = () => {
                     
                 </div>
 
-                
                 { view === 'transactions' && <History onClose={handleClose}/> }
 
                 { view === 'add' && <TransactionForm onClose={handleClose}/> }
 
                 { view === 'chart' && <Chart onClose={handleClose}/> }
-                    
                     
                 </div>
         </Layout>

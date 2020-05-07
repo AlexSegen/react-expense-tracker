@@ -38,7 +38,7 @@ const AmountBox = () => {
                 <span className={`${styles.value} ${styles.income}`}>{formatNumber(incomes)}</span>
             </div>
             <div className={styles.box}>
-            <span className={styles.title}>{t("expense")}</span>
+            <span className={styles.title}>{t("outcome")}</span>
                 <span className={`${styles.value} ${styles.expense}`}>{formatNumber(expenses * -1)}</span>
             </div>
         </div>
