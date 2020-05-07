@@ -1,9 +1,12 @@
 import React, { useContext, useState, useEffect } from 'react';
-import { TransactionsContext } from '../../context/TransactionContext';
-import { formatNumber} from '../../helpers/utils';
-import styles from './amount-box.module.scss';
-import { ThemeContext } from '../../context/ThemeContext';
 import { useTranslation } from "react-i18next";
+
+import { ThemeContext } from '../../context/ThemeContext';
+import { TransactionsContext } from '../../context/TransactionContext';
+
+import { FormatAmount } from '../../helpers/utils';
+
+import styles from './amount-box.module.scss';
 
 const AmountBox = () => {
 
@@ -35,11 +38,11 @@ const AmountBox = () => {
         }}>
             <div className={styles.box}>
                 <span className={styles.title}>{t("income")}</span>
-                <span className={`${styles.value} ${styles.income}`}>{formatNumber(incomes)}</span>
+                <span className={`${styles.value} ${styles.income}`}><FormatAmount val={ incomes }/></span>
             </div>
             <div className={styles.box}>
             <span className={styles.title}>{t("outcome")}</span>
-                <span className={`${styles.value} ${styles.expense}`}>{formatNumber(expenses * -1)}</span>
+                <span className={`${styles.value} ${styles.expense}`}><FormatAmount val={ expenses * -1 }/></span>
             </div>
         </div>
      );

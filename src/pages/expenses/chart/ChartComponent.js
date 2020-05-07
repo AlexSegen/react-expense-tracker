@@ -1,7 +1,7 @@
 import React,{ useEffect, useRef, useContext, useState } from 'react';
-
+import { CategoriesContext } from '../../../context/CategoriesContext';
 import { TransactionsContext } from '../../../context/TransactionContext';
-import { ThemeContext } from '../../../context/ThemeContext'; 
+import { ThemeContext } from '../../../context/ThemeContext';
 import { categoryList } from '../../../helpers/constants';
 
 import Chart from 'chart.js';
@@ -14,6 +14,7 @@ const PieChart = () => {
     const { t } = useTranslation();
 
     const { transactions } = useContext(TransactionsContext);
+    const { categories} = useContext(CategoriesContext);
     const { theme } = useContext(ThemeContext);
 
     const [selectedChart, setSelectedChart] = useState('pie');
@@ -24,8 +25,8 @@ const PieChart = () => {
 
         let data = [];
         
-        for(let category of categoryList) {
-            data.push(transactions.filter(item => item.category === category.value).reduce((prev, current) => {
+        for(let category of categories) {
+            data.push(transactions.filter(item => item.category === category.id).reduce((prev, current) => {
                 return current.amount < 0 ? prev + current.amount : prev + 0
             }, 0) * -1);
         }
@@ -34,7 +35,7 @@ const PieChart = () => {
             type: selectedChart,
             data: {
                 datasets: [{
-                    label: "Gastos",
+                    label: t("outcome"),
                     data,
                     backgroundColor: [
                         '#3F51B5',
@@ -48,7 +49,7 @@ const PieChart = () => {
                         '#388E3C'
                     ],
                 }],
-                labels: categoryList.map(item => item.label)
+                labels: categories.map(item => item.title)
             }
         });
     }

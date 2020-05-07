@@ -1,20 +1,21 @@
 import React,{ useState, useContext } from 'react';
-import { TransactionsContext } from '../../context/TransactionContext';
-import { ThemeContext } from '../../context/ThemeContext';
 import { useTranslation } from "react-i18next";
+import { ThemeContext } from '../../context/ThemeContext';
+import { CategoriesContext } from '../../context/CategoriesContext';
+import { TransactionsContext } from '../../context/TransactionContext';
 
-import { categoryList } from '../../helpers/constants';
 import { FormatDateTime, FormatAmount } from '../../helpers/utils';
+
 import styles from './history-item.module.scss';
 
-const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) => {
+const HistoryItem = ({title, category, amount, comments, createdAt, doc}) => {
     const { t } = useTranslation();
 
-    const { deleteTransaction } = useContext(TransactionsContext);
     const { theme } = useContext(ThemeContext);
+    const { categories } = useContext(CategoriesContext);
+    const { deleteTransaction } = useContext(TransactionsContext);
 
     const [toggle, setToggle] = useState(false);
-    const [categories] = useState(categoryList);
 
     const deleteEntry = () => {
         deleteTransaction(doc)
@@ -25,9 +26,9 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) =>
         setToggle(!toggle)
     }
 
-    const getCategoryLabel = str => {
-        const active = categories.find(item => item.value === str);
-        return active ? active.label : '';
+    const getCategoryLabel = id => {
+        const active = categories.find(item => item.id === id);
+        return active ? active.title : '';
     }
 
     return (

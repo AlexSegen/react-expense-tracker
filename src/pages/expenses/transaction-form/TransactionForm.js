@@ -1,8 +1,10 @@
 import React, { useState, useContext } from 'react';
 import styles from './transaction-form.module.scss';
 import { TransactionsContext } from '../../../context/TransactionContext';
+import { CategoriesContext } from '../../../context/CategoriesContext';
 import { ThemeContext }  from '../../../context/ThemeContext';
-import { categoryList } from '../../../helpers/constants';
+
+import CategoryForm from '../../categories/category-form/CategoryForm';
 import { useTranslation } from "react-i18next";
 
 const TransactionForm = ({onClose}) => {
@@ -10,12 +12,12 @@ const TransactionForm = ({onClose}) => {
     const { t } = useTranslation();
 
     const { addTransaction } = useContext(TransactionsContext);
+    const { categories } = useContext(CategoriesContext);
     const { theme } = useContext(ThemeContext);
 
     const initialState = { title: '', category: '', amount: "", comments: '' }
 
     const [transaction, setTransaction] = useState(initialState);
-    const [categories] = useState(categoryList);
 
     const handleInputs = e => {
         setTransaction({
@@ -53,22 +55,28 @@ const TransactionForm = ({onClose}) => {
                     }}
                     onChange={handleInputs} value={transaction.title} placeholder={t("title")}  type="text" name="title" id="title" className="form-control text-center"/>
                </div>
-               <div className="form-group mb-3">
-                    <select
-                    style={{
-                        borderColor: theme.ui,
-                        background: theme.ui,
-                        color: theme.text
-                        }}
-                    onChange={handleInputs} value={transaction.category} className="form-control text-center" name="category" id="category">
-                        <option value="0">{t("select category")}</option>
-                        {
-                            categories.map(item => (
-                                <option key={item.value} value={item.value}>{item.label}</option>
-                            ))
-                        }
-                    </select>
-               </div>
+               {
+                   categories && categories.length > 0 ?
+                    <div className="form-group mb-3">
+                        <select
+                        style={{
+                            borderColor: theme.ui,
+                            background: theme.ui,
+                            color: theme.text
+                            }}
+                        onChange={handleInputs} value={transaction.category} className="form-control text-center" name="category" id="category">
+                            <option value="0">{t("select category")}</option>
+                            {
+                                categories.map(item => (
+                                    <option key={item.id} value={item.id}>{item.title}</option>
+                                ))
+                            }
+                        </select>
+                </div> :
+                <CategoryForm/>
+               }
+               
+               
                <div className="form-group mb-3">
                    <input
                     style={{
