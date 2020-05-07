@@ -8,11 +8,13 @@ export const TransactionsContext = createContext();
 const TransactionsContextProvider = ({children}) => {
 
     const [transactions, setTransactions] = useState([]);
+    const [allTransactions, setAllTransactions] = useState([]);
     const [isFiltered, setIsFiltered] = useState([]);
 
     const loadStorage = async () => {
         const records = await list();
-        filterTransactions();
+        setAllTransactions(records)
+        filterTransactions(records);
     }
 
     const addTransaction = async ({title, category, amount, comments }) => {
@@ -51,7 +53,7 @@ const TransactionsContextProvider = ({children}) => {
         setTransactions([...transactions]);
     }
 
-    function filterTransactions (pastMonth) {
+    function filterTransactions (array, pastMonth) {
 
         const formatString = 'YYYY-MM-DD'
 
@@ -72,7 +74,7 @@ const TransactionsContextProvider = ({children}) => {
         const endDate = moment(lastDay).format(formatString);
         
         setIsFiltered(pastMonth);
-        setTransactions(transactions.filter(item =>  moment(item.createdAt).isBetween(startDate, endDate)))
+        setTransactions(array.filter(item =>  moment(item.createdAt).isBetween(startDate, endDate)));
     }
 
     useEffect(() => {
@@ -80,7 +82,7 @@ const TransactionsContextProvider = ({children}) => {
     }, []);
 
     return ( 
-        <TransactionsContext.Provider value={{transactions, addTransaction, deleteTransaction, updateTransaction, filterTransactions, isFiltered}}>
+        <TransactionsContext.Provider value={{allTransactions, transactions, addTransaction, deleteTransaction, updateTransaction, filterTransactions, isFiltered}}>
             {children}
         </TransactionsContext.Provider>
      );

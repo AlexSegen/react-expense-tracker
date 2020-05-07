@@ -24,7 +24,7 @@ const Header = () => {
             <div className={styles.toolbar}>
             { user && 
                 <>
-                    <Link to="/about"
+                    <Link to="/settings"
                      className={styles.action}>
                         <SettingsIcon/>
                     </Link>

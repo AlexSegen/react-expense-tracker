@@ -7,8 +7,8 @@ const TrackerSettings = () => {
     return ( 
         <Layout>
             <div>
-                <h1>About</h1>
-                <p>This is the About Page.</p>
+                <h1>Settings</h1>
+                <p>This is the settings Page.</p>
             </div>
         </Layout>
      );

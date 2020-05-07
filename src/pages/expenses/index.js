@@ -9,15 +9,15 @@ import History from './History';
 import AmountBox from './AmountBox';
 import Chart from './chart/ChartComponent';
 import TransactionForm from './transaction-form/TransactionForm';
-import { ListIcon, PlusCircleIcon, ChartIcon } from '../../components/icons';
+import { ListIcon, PlusCircleIcon, ChartIcon, ClockIcon, FilterIcon } from '../../components/icons';
 import { TransactionsContext } from '../../context/TransactionContext';
 
 const Expenses = () => {
 
     const { theme } = useContext(ThemeContext);
-    const { filterTransactions, isFiltered } = useContext(TransactionsContext);
+    const { allTransactions, filterTransactions, isFiltered } = useContext(TransactionsContext);
 
-    const [view, setView] = useState('transactions')
+    const [view, setView] = useState('transactions');
 
     const handleClose = (view) => {
         setView(view);
@@ -37,30 +37,30 @@ const Expenses = () => {
                 }}
                 className={styles.h__content}>
                 <div className={styles.h__header}>
-                    <h4 className={styles.h__title}>Historia</h4>
+                <h4 className={styles.h__title}>Historia <br/><small className="text-muted">{ isFiltered ? 'Mes anterior' : 'Mes en curso' }</small></h4>
 
                     <button 
-                    className={`${styles.list} ${theme.light ? null : styles.dark}`}
-                    onClick={() => filterTransactions(isFiltered ? false : true)}>
-                        Filter
-                    </button>
-
-                    <button 
-                    className={`${styles.list} ${theme.light ? null : styles.dark}`}
-                    onClick={() => setView('transactions')} disabled={view === 'transactions'}>
-                        <ListIcon/>
-                    </button>
-
-                    <button 
-                    className={`${styles.add} ${theme.light ? null : styles.dark}`}
+                    className={`${styles.action} ${!theme.light && styles.dark} ${styles.add}`}
                     onClick={() => setView('add')} disabled={view === 'add'}>
                         <PlusCircleIcon/>
                     </button>
 
                     <button 
-                    className={`${styles.chart} ${theme.light ? null : styles.dark}`}
+                    className={`${styles.action} ${!theme.light && styles.dark} ${styles.list}`}
+                    onClick={() => setView('transactions')} disabled={view === 'transactions'}>
+                        <ListIcon/>
+                    </button>
+
+                    <button 
+                    className={`${styles.action} ${!theme.light && styles.dark} ${styles.chart}`}
                     onClick={() => setView('chart')} disabled={view === 'chart'}>
                         <ChartIcon/>
+                    </button>
+
+                    <button 
+                    className={`${styles.action} ${!theme.light && styles.dark}  ${styles.filter} ${isFiltered && styles.active}`}
+                    onClick={() => filterTransactions(allTransactions, isFiltered ? false : true)}>
+                        <FilterIcon/>
                     </button>
                     
                 </div>

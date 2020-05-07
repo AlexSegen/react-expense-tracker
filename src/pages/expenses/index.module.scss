@@ -33,30 +33,6 @@
           }
       }
 
-      .action {
-          color: var(--red);
-          width: 30px;
-          height: 30px;
-          padding: 0;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          background: #fff;
-          border: 1px solid #f9f9f9;
-          margin-left: 10px;
-          transition: all ease-in-out .1s;
-          border-radius: 3px;
-          &:hover,
-          &:focus {
-              background: #f9f9f9;   
-          }
-
-          svg {
-              width: 18px;
-              stroke-width: 1px;
-          }
-      }
-
       .header {
           width: 100%;
           display: flex;
@@ -100,94 +76,58 @@
   &__content {
       position: relative;
 
-      .add {
-          color: var(--gray);
-          font-size: .8rem;
-          padding: 5px 5px;
-          white-space: nowrap;
-          background: #fff;
-          border: 1px solid #f9f9f9;
-          margin-left: 10px;
-          transition: all ease-in-out .1s;
-          border-radius: 3px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          svg {
-              width: 20px;
-              height: 20px;
-          }
-          &:hover,
-          &:focus {
-              background: #f9f9f9;   
-          }
-          &:disabled {
-              color: var(--green);
-          }
-          &.dark {
-              background:#333;
-              border-color: #333
-          }
-      }
+      .action {
+        color: var(--gray);
+        font-size: .8rem;
+        padding: 5px 5px;
+        white-space: nowrap;
+        background: #fff;
+        border: 1px solid #f9f9f9;
+        margin-left: 10px;
+        transition: all ease-in-out .1s;
+        border-radius: 3px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
 
-      .chart {
-          color: var(--gray);
-          font-size: .8rem;
-          padding: 5px 5px;
-          white-space: nowrap;
-          background: #fff;
-          border: 1px solid #f9f9f9;
-          margin-left: 10px;
-          transition: all ease-in-out .1s;
-          border-radius: 3px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          svg {
-              width: 20px;
-              height: 20px;
-          }
-          &:hover,
-          &:focus {
-              background: #f9f9f9;   
-          }
-          &:disabled {
-              color: var(--info);
-          }
-          &.dark {
-              background:#333;
-              border-color: #333
-          }
-      }
+        svg {
+            width: 20px;
+            height: 20px;
+        }
 
-      .list {
-          color: var(--gray);
-          font-size: .8rem;
-          padding: 5px 5px;
-          white-space: nowrap;
-          background: #fff;
-          border: 1px solid #f9f9f9;
-          margin-left: 10px;
-          transition: all ease-in-out .1s;
-          border-radius: 3px;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          svg {
-              width: 20px;
-              height: 20px;
-          }
-          &:hover,
-          &:focus {
+        &:hover,
+        &:focus {
               background: #f9f9f9;   
-          }
-          &:disabled {
-              color: var(--primary);
-          }
-          &.dark {
-              background:#333;
-              border-color: #333
-          }
+        }
+        &.dark {
+            background:#333;
+            border-color: #333
+        }
+
+        &.add {
+            &:disabled {
+                color: var(--green);
+            }
+        }
+
+        &.list {
+            &:disabled {
+                color: var(--blue);
+            }
+        }
+
+        &.chart {
+            &:disabled {
+                color: var(--info);
+            }
+        }
+
+        &.filter {
+            &.active {
+                color: var(--red);
+            }
+        }
+
       }
 
       .bulb {

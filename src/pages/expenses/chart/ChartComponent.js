@@ -51,7 +51,7 @@ const PieChart = ({onClose}) => {
 
     useEffect(() => {
         loadChart()
-    }, [selectedChart]);
+    }, [selectedChart, transactions]);
 
     return ( 
         <div 
@@ -70,10 +70,8 @@ const PieChart = ({onClose}) => {
 
             <canvas ref={myChart} width="350" height="350"></canvas>
 
-            <div className="text-right">
-                <button
-                onClick={() => onClose('transactions')}
-                    className="btn btn-outline-link btn-sm mr-2">Cerrar</button>
+            <div className="text-right text-muted small">
+                Gráfico de gastos
             </div>
 
         </div>
