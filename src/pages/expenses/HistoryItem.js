@@ -1,12 +1,11 @@
 import React,{ useState, useContext } from 'react';
 import { TransactionsContext } from '../../context/TransactionContext';
-import { formatNumber, formatDateTime } from '../../helpers/utils';
-import { categoryList } from '../../helpers/constants';
-
-import styles from './history-item.module.scss';
 import { ThemeContext } from '../../context/ThemeContext';
-
 import { useTranslation } from "react-i18next";
+
+import { categoryList } from '../../helpers/constants';
+import { FormatDateTime, FormatAmount } from '../../helpers/utils';
+import styles from './history-item.module.scss';
 
 const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) => {
     const { t } = useTranslation();
@@ -40,7 +39,7 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) =>
                         <span className={styles.category}>{getCategoryLabel(category)}</span>
                     </div>
                     <div className={styles.amount}>
-                        {formatNumber(amount)}
+                        <FormatAmount val={amount}/>
                     </div>
                 </div>
                 <button
@@ -73,7 +72,8 @@ const HistoryItem = ({title, category, amount, comments, createdAt, id, doc}) =>
     
                     <p className={styles.title}>{t("createdAt")}</p>
                     <div className={styles.desc}>
-                        {formatDateTime(createdAt)}
+                    <FormatDateTime date={createdAt}/>
+                        {/* {formatDateTime(createdAt)} */}
                     </div>
 
                 </div>
