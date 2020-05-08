@@ -3,8 +3,8 @@ import { useTranslation } from "react-i18next";
 import { ThemeContext } from '../../context/ThemeContext';
 import { TransactionsContext } from '../../context/TransactionContext';
 
-
 import HistoryItem from './HistoryItem';
+import image from '../../assets/img/no-transactions.svg'
 import styles from './history.module.scss';
 
 const History = () => {
@@ -33,7 +33,13 @@ const History = () => {
                         comments={item.comments}
                         createdAt={item.createdAt}
                         amount={item.amount}/>) :
-                    <div className="text-muted small text-center p-3">{t('no transactions')}</div>
+                    <div className={`${styles.h__empty} text-muted small text-center py-5`}>
+                        <img src={image} alt={t('no transactions')} />
+                        <p>
+                            {t('no transactions')}
+                        </p>
+                        
+                    </div>
                 }
             </div>
             
