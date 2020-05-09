@@ -2,7 +2,6 @@ import React,{ useEffect, useRef, useContext, useState } from 'react';
 import { CategoriesContext } from '../../../context/CategoriesContext';
 import { TransactionsContext } from '../../../context/TransactionContext';
 import { ThemeContext } from '../../../context/ThemeContext';
-import { categoryList } from '../../../helpers/constants';
 
 import Chart from 'chart.js';
 import { useTranslation } from "react-i18next";
