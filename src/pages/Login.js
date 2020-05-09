@@ -21,8 +21,8 @@ const Login = () => {
     const [password, setPassword] = useState('12345678');
 
     const handleSubmit = async () => {
-        const res = await firebase.auth().createUserWithEmailAndPassword(email, password)
-        //const res = await firebase.auth().signInWithEmailAndPassword(email, password);
+        //const res = await firebase.auth().createUserWithEmailAndPassword(email, password)
+        const res = await firebase.auth().signInWithEmailAndPassword(email, password);
     }
 
     return ( 
