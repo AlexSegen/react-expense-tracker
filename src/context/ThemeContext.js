@@ -7,7 +7,7 @@ const storageName = 'theme';
 const ThemeContextProvider = ({children}) => {
 
     const lightTheme = { bg: "#ffffff", text: "#51587d", ui: "#f9f9f9" }
-    const darkTheme = { bg: "#212529", text: "#eeeeee", ui: "#1d2833" }
+    const darkTheme = { bg: "#212529", text: "#eeeeee", ui: "#333333" }
 
     const initialState = {
         light: true,
