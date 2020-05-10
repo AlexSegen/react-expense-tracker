@@ -20,14 +20,14 @@
             .value {
                 font-size: 1.3rem;
                 line-height: 1.3rem;
-                font-weight: normal;
+                font-weight: bold;
                 display: block;
 
                 &.income {
-                    color: #4CAF50;
+                    color: var(--blue);
                 }
                 &.expense {
-                    color: #f44336;
+                    color: var(--red);
                 }
             }
         }

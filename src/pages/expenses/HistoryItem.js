@@ -31,6 +31,11 @@ const HistoryItem = ({title, category, amount, comments, createdAt, doc}) => {
         return active ? active.title : '';
     }
 
+    const style = {
+        background: theme.ui,
+        borderColor: theme.ui
+    }
+
     return (
         <div className={styles.h__item}>
             <div className={`${styles.header} ${amount < 0 && styles.expense }`}>
@@ -44,10 +49,7 @@ const HistoryItem = ({title, category, amount, comments, createdAt, doc}) => {
                     </div>
                 </div>
                 <button
-                style={{
-                    background: theme.ui,
-                    borderColor: theme.ui
-                }} 
+                style={style} 
                 onClick={deleteEntry} className={styles.action} type="button">
                     <svg fill="currentColor" viewBox="0 0 20 20"><path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" fillRule="evenodd"></path></svg>
                 </button>
@@ -55,10 +57,7 @@ const HistoryItem = ({title, category, amount, comments, createdAt, doc}) => {
 
             { toggle &&
                 <div
-                style={{
-                    background: theme.ui,
-                    borderColor: theme.ui
-                }} 
+                style={style} 
                  className={styles.body}>
 
                     {
@@ -73,8 +72,7 @@ const HistoryItem = ({title, category, amount, comments, createdAt, doc}) => {
     
                     <p className={styles.title}>{t("createdAt")}</p>
                     <div className={styles.desc}>
-                    <FormatDateTime date={createdAt}/>
-                        {/* {formatDateTime(createdAt)} */}
+                        <FormatDateTime date={createdAt}/>
                     </div>
 
                 </div>
