@@ -45,7 +45,7 @@ const TransactionForm = ({onClose}) => {
 
     return (
         <div 
-        style={{ borderColor: theme.ui, color: theme.text }}
+        style={{ borderColor: theme.ui, color: theme.text, background: theme.bg }}
         className={styles.f__container}>
            <form onSubmit={handleSubmit}>
                <p className="text-center">{t("add transaction")}</p>
