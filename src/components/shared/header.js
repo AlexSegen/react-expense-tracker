@@ -15,28 +15,32 @@ const Header = () => {
         await firebase.auth().signOut();
     }
 
+    const style = {
+        color: theme.text,
+        background: theme.ui,
+        borderColor: theme.ui
+    };
+
     return ( 
         <header
-         className={`${styles.header} ${!theme.light && styles.dark}`}>
+         className={`${styles.header} ${!theme.light && styles.dark}`} style={style}>
             <div className={styles.title}>
-                <Link to="/">Expense Tracker</Link>
+                <Link style={{color: theme.text}} to="/">Expense Tracker</Link>
             </div>
             <div className={styles.toolbar}>
             { user && 
                 <>
                     <Link to="/settings"
+                    style={style}
                      className={styles.action}>
                         <SettingsIcon/>
                     </Link>
-                    <button className={styles.action} type="button" onClick={SignOut}>
+                    <button 
+                    style={style}
+                    className={styles.action} type="button" onClick={SignOut}>
                         <SignOutIcon/>
                     </button>
                 </>}
-{/*                 { !user &&
-                    <Link className={styles.action} to='/login'>
-                            <svg fill="currentColor" viewBox="0 0 20 20"><path d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>    
-                    </Link>
-                } */}
             </div>
 
         </header>

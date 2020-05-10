@@ -37,33 +37,28 @@ const TransactionForm = ({onClose}) => {
         onClose('transactions');
     }
 
+    const style = {
+        borderColor: theme.ui,
+        background: theme.ui,
+        color: theme.text
+    }
+
     return (
         <div 
-        style={{
-            background: theme.bg,
-            color: theme.text
-        }}
+        style={{ borderColor: theme.ui, color: theme.text }}
         className={styles.f__container}>
            <form onSubmit={handleSubmit}>
                <p className="text-center">{t("add transaction")}</p>
                <div className="form-group mb-3">
                    <input
-                   style={{
-                    borderColor: theme.ui,
-                    background: theme.ui,
-                    color: theme.text
-                    }}
+                   style={style}
                     onChange={handleInputs} value={transaction.title} placeholder={t("title")}  type="text" name="title" id="title" className="form-control text-center"/>
                </div>
                {
                    categories && categories.length > 0 ?
                     <div className="form-group mb-3">
                         <select
-                        style={{
-                            borderColor: theme.ui,
-                            background: theme.ui,
-                            color: theme.text
-                            }}
+                        style={style}
                         onChange={handleInputs} value={transaction.category} className="form-control text-center" name="category" id="category">
                             <option value="0">{t("select category")}</option>
                             {
@@ -79,20 +74,12 @@ const TransactionForm = ({onClose}) => {
                
                <div className="form-group mb-3">
                    <input
-                    style={{
-                        borderColor: theme.ui,
-                        background: theme.ui,
-                        color: theme.text
-                    }}
+                    style={style}
                     onChange={handleInputs} value={transaction.amount} placeholder={t("amount")} type="number" name="amount" id="amount" className="form-control text-center"/>
                </div>
                <div className="form-group">
                    <textarea
-                    style={{
-                        borderColor: theme.ui,
-                        background: theme.ui,
-                        color: theme.text
-                    }}
+                    style={style}
                     onChange={handleInputs} value={transaction.comments} placeholder={t("comments")} name="comments" id="comments" className="form-control text-center" cols="30" rows="2"></textarea>
                </div>
                <div className="text-right">

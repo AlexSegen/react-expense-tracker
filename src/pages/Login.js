@@ -25,6 +25,8 @@ const Login = () => {
         const res = await firebase.auth().signInWithEmailAndPassword(email, password);
     }
 
+    const style = {background: theme.ui, color: theme.text, borderColor: theme.ui}
+    
     return ( 
         <Layout>
             
@@ -34,11 +36,11 @@ const Login = () => {
                     <p className="text-muted">Ingresa tus datos</p>
                     <div className="text-left">
                         <div className="form-group">
-                            <input style= {{background: theme.ui, color: theme.text, borderColor: theme.ui}}
+                            <input style= {style}
                              className="form-control" type="email" name="email" placeholder="Correo" value={email} onChange={(e) => setEmail(e.target.value) } />
                         </div>
                         <div className="form-group">
-                            <input style= {{background: theme.ui, color: theme.text, borderColor: theme.ui}}
+                            <input style= {style}
                             className="form-control" type="password" name="password" placeholder="Contraseña" value={password} onChange={(e) => setPassword(e.target.value) }/>
                         </div>
                         <div className="form-group text-center">

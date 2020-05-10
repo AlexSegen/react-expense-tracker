@@ -48,26 +48,6 @@
 
     }
 
-    &.dark {
-        background: #212529;
-        .title {
-            a {
-                color: #eeeeee;
-            }
-        }
-        .toolbar {
-
-            .action {
-                color: #eeeeee;
-                background: #212529;
-                border: 1px solid #212529;
-                &.bulb {
-                    color: var(--yellow);
-                }
-            }
-
-        }
-    }
 }
 
 
