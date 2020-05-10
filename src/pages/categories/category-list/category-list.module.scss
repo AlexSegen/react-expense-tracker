@@ -17,7 +17,7 @@
         width: 100%;
         font-size: 1rem;
         svg {
-            color: var(--info);
+            color: var(--blue);
             width: 18px;
             margin-right: 5px;
         }
@@ -30,6 +30,7 @@
         align-items: center;
         .action {
             color: var(--red);
+            cursor: pointer;
             display: flex;
             justify-content: center;
             align-items: center;

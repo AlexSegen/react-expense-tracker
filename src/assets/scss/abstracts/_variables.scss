@@ -5,14 +5,10 @@
 //Import Font Family
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700");
 
-
-/// Regular font family
-/// @type List
 $text-font-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
 $text-header-stack: 'Open Sans', 'Helvetica Neue Light', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif !default;
-$code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono', 'Monaco', monospace !default;
-//Body properties
 
+//Body properties
 $font-size: 14px;
 $text-color: #111;
 $body-background: #f9f9f9;
@@ -28,49 +24,22 @@ $red: #FF5722 !default;
 $orange: #fd7e14 !default;
 $yellow: #ffc107 !default;
 $green: #28a745 !default;
-$teal: #20c997 !default;
 $cyan: #17a2b8 !default;
-
-//Light to Dark Colors
-$white: #fff;
-$gray-100: #f8f9fa;
-$gray-200: #e9ecef;
-$gray-300: #dee2e6;
-$gray-400: #ced4da;
-$gray-500: #adb5bd;
-$gray-600: #6c757d;
-$gray-700: #495057;
-$gray-800: #343a40;
-$gray-900: #212529;
-$black: #000;
 
 //Framework Colors
 $primary: #3F51B5 !default;
-$secondary: $gray-600 !default;
 $success: $green !default;
 $info: $cyan !default;
 $warning: $yellow !default;
 $danger: $red !default;
-$light: $gray-100 !default;
-$dark: $gray-800 !default;
-
-// Container's maximum width
-/// @type Length
-$max-width: 1180px !default;
 
 
-/// Breakpoints map
-/// @prop {String} keys - Keys are identifiers mapped to a given length
-/// @prop {Map} values - Values are actual breakpoints expressed in pixels
-$breakpoints: (
-  'small': 320px,
-  'medium': 768px,
-  'large': 1024px,
-) !default;
-
-
-/// Relative or absolute URL where all assets are served from
-/// @type String
-/// @example scss - When using a CDN
-///   $base-url: 'http://cdn.example.com/assets/';
-$base-url: '/assets/' !default;
+:root {
+  --primary: #3F51B5;
+  --outcome-color: #FF5722;
+  --income-color: #2196F3;
+  --green: #28a745;
+  --red: #FF5722;
+  --blue: #2196F3;
+  --yellow: #ffc107;
+}

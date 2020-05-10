@@ -65,14 +65,14 @@ const PieChart = () => {
         }}
         className={styles.chart__container}>
     
-            <div className="form-group" style={{maxWidth: "150px", margin: "0 auto 20px"}}>
+            <div className={styles.field__group} style={{maxWidth: "150px", margin: "0 auto 20px"}}>
                 <select
                 style={{
                     borderColor: theme.ui,
                     background: theme.ui,
                     color: theme.text
                 }}
-                 className="form-control form-control-sm" onChange={e => setSelectedChart(e.target.value)} value={selectedChart}>
+                 className={styles.control} onChange={e => setSelectedChart(e.target.value)} value={selectedChart}>
                     <option value="pie">Pie Chart</option>
                     <option value="bar">Bar Chart</option>
                 </select>

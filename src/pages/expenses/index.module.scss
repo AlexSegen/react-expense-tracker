@@ -78,6 +78,7 @@
 
       .action {
         color: var(--gray);
+        cursor: pointer;
         font-size: .8rem;
         padding: 5px 5px;
         white-space: nowrap;
@@ -118,7 +119,7 @@
 
         &.chart {
             &:disabled {
-                color: var(--info);
+                color: var(--yellow);
             }
         }
 

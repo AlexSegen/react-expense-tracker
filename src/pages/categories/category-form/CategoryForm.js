@@ -25,18 +25,14 @@ const CategoryForm = () => {
 
     return (
         <div className={styles.f__container}>
-               <div className="form-group mb-3">
-                <div className="input-group">
+               <div className={styles.field__group}>
                 <input style={{ background: theme.ui, borderColor: theme.ui, color: theme.text }}
                         onChange={e => setCategory({
                         ...category,
                         title: e.target.value
                     })}
-                    value={category.title} placeholder={t('category name')}  type="text" name="title" id="title" className="form-control text-center"/>
-                    <div className="input-group-append">
-                        <button onClick={handleSubmit} className="btn btn-info" type="button">{t('add category')}</button>
-                    </div>
-                    </div>
+                    value={category.title} placeholder={t('category name')}  type="text" name="title" id="title" className={styles.control}/>
+                    <button onClick={handleSubmit} className={styles.button} type="button">{t('add category')}</button>
                </div>
         </div> 
      );

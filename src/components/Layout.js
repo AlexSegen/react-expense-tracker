@@ -5,6 +5,8 @@ import Footer from './shared/footer';
 import '../assets/scss/main.scss'
 import { ThemeContext } from '../context/ThemeContext';
 
+import styles from './layout.module.scss';
+
 const Layout = ({children}) => {
     const { theme } = useContext(ThemeContext);
     return ( 
@@ -13,7 +15,7 @@ const Layout = ({children}) => {
             background: theme.bg,
             color: theme.text
         }}
-        className="app__container">
+        className={styles.app__container}>
             <Header/>
             <main>
                 {children}

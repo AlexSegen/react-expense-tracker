@@ -35,6 +35,7 @@
 
         .action {
             color: var(--red);
+            cursor: pointer;
             width: 30px;
             height: 30px;
             padding: 0;
@@ -63,9 +64,9 @@
             justify-content: flex-start;
             align-items: center;
             padding: 10px 5px;
-            border-left: 2px solid var(--blue);
+            border-left: 2px solid  var(--income-color);
             &.expense {
-                border-left: 2px solid var(--red);
+                border-left: 2px solid  var(--outcome-color);
             }
         }
         .body {

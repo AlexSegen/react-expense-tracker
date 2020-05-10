@@ -49,17 +49,17 @@ const TransactionForm = ({onClose}) => {
         className={styles.f__container}>
            <form onSubmit={handleSubmit}>
                <p className="text-center">{t("add transaction")}</p>
-               <div className="form-group mb-3">
+               <div className={styles.field__group}>
                    <input
                    style={style}
-                    onChange={handleInputs} value={transaction.title} placeholder={t("title")}  type="text" name="title" id="title" className="form-control text-center"/>
+                    onChange={handleInputs} value={transaction.title} placeholder={t("title")}  type="text" name="title" id="title" className={styles.control}/>
                </div>
                {
                    categories && categories.length > 0 ?
-                    <div className="form-group mb-3">
+                    <div className={styles.field__group}>
                         <select
                         style={style}
-                        onChange={handleInputs} value={transaction.category} className="form-control text-center" name="category" id="category">
+                        onChange={handleInputs} value={transaction.category} className={styles.control} name="category" id="category">
                             <option value="0">{t("select category")}</option>
                             {
                                 categories.map(item => (
@@ -71,24 +71,24 @@ const TransactionForm = ({onClose}) => {
                 <CategoryForm/>
                }
                
-               
-               <div className="form-group mb-3">
+               <div className={styles.field__group}>
                    <input
                     style={style}
-                    onChange={handleInputs} value={transaction.amount} placeholder={t("amount")} type="number" name="amount" id="amount" className="form-control text-center"/>
+                    onChange={handleInputs} value={transaction.amount} placeholder={t("amount")} type="number" name="amount" id="amount" className={styles.control}/>
                </div>
-               <div className="form-group">
+               <div className={styles.field__group}>
                    <textarea
                     style={style}
-                    onChange={handleInputs} value={transaction.comments} placeholder={t("comments")} name="comments" id="comments" className="form-control text-center" cols="30" rows="2"></textarea>
+                    onChange={handleInputs} value={transaction.comments} placeholder={t("comments")} name="comments" id="comments" className={styles.control} cols="30" rows="2"></textarea>
                </div>
-               <div className="text-right">
+
+               <div className={styles.actions}>
                     {
-                         transaction.amount > 0 && <button className="btn btn-success btn-sm">{t("add income")}</button>
+                         transaction.amount > 0 && <button className={`${styles.button} ${styles.income}`}>{t("add income")}</button>
                     }
 
                     {
-                         transaction.amount < 0 && <button className="btn btn-danger btn-sm">{t("add expense")}</button>
+                         transaction.amount < 0 && <button className={`${styles.button} ${styles.outcome}`}>{t("add expense")}</button>
                     }
                </div>
            </form>

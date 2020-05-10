@@ -4,7 +4,9 @@
         justify-content: center;
         align-items: center;
         margin: 20px 0;
-        box-shadow: 0 15px 15px rgba(0, 0, 0, .05);
+        box-shadow: 0 10px 15px rgba(0, 0, 0, .05);
+        position: relative;
+        width: 100%;
         .box {
             width: 100%;
             text-align: center;
@@ -24,10 +26,10 @@
                 display: block;
 
                 &.income {
-                    color: var(--blue);
+                    color: var(--income-color);
                 }
                 &.expense {
-                    color: var(--red);
+                    color: var(--outcome-color);
                 }
             }
         }

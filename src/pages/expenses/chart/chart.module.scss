@@ -4,3 +4,19 @@
         background: #fff;
     }
 }
+
+.field {
+    &__group {
+        margin-bottom: 10px;
+        .control {
+            width: 100%;
+            text-align: center;
+            display: block;
+            box-shadow: none;
+            border: 1px solid #ddd;
+            padding: 5px;
+            height: 40px;
+            border-radius: 3px;
+        }
+    }
+}

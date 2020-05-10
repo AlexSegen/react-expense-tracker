@@ -3,3 +3,42 @@
         padding: 10px 0;
     }
 }
+
+.field {
+    &__group {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        margin-bottom: 10px;
+
+        .control {
+            width: 100%;
+            text-align: center;
+            display: block;
+            box-shadow: none;
+            border: 1px solid #ddd;
+            padding: 5px;
+            height: 40px;
+            border-radius: 3px;
+        }
+    }
+}
+
+.button {
+    font-size: .9rem;
+    height: 40px;
+    color: #eee;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    vertical-align: middle;
+    background: var(--green);
+    border: 1px solid var(--green);
+    padding: 0.37rem 0.75rem;
+    line-height: 1.5;
+    border-radius: 3px;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+
+}
