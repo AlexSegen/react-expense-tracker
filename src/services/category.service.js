@@ -1,6 +1,6 @@
 import { database } from "../config/firebase.config";
 const dbRef = database.ref();
-const collectionRef = dbRef.child("categories");
+const collectionRef = dbRef.child("cats");
 
 export const create = (payload) => {
   return new Promise((resolve, reject) => {

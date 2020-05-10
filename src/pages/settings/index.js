@@ -67,7 +67,7 @@ const TrackerSettings = () => {
 
                     <Link to="/categories" className={styles.grid__item} style={style}>
                         <TagIcon/>
-                        <span>Categorías</span>
+                        <span>{t('categories page')}</span>
                     </Link>
 
                 </div>

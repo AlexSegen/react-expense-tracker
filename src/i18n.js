@@ -11,6 +11,7 @@ i18n
       en: {
         translations: {
             "loading":"Loading...",
+            "categories": "Categories",
             "login": "Login",
             "Start tracking your expenses": "Start tracking your expenses",
             "email":"Email",
@@ -46,6 +47,7 @@ i18n
       es: {
         translations: {
             "loading":"Cargando...",
+            "categories": "Categorías",
             "login": "Iniciar sesión",
             "Start tracking your expenses": "Ingresa tus datos",
             "email":"Email",

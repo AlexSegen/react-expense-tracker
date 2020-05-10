@@ -33,7 +33,7 @@ const History = () => {
                         comments={item.comments}
                         createdAt={item.createdAt}
                         amount={item.amount}/>) :
-                    <div className={`${styles.h__empty} text-muted small text-center py-5`}>
+                    <div className={`${styles.h__empty} text-center`}>
                         <img src={image} alt={t('no transactions')} />
                         <p>
                             {t('no transactions')}
