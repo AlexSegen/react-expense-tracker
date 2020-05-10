@@ -10,7 +10,7 @@ const LangContextProvider = ({children}) => {
 
     const [currentLang, setCurrentLang] = useState('es');
 
-    const [currentCurrency, setCurrentCurrency] = useState('CLP');
+    const [currentCurrency, setCurrentCurrency] = useState('USD');
 
     const changeLanguage = () => {
         const lng = currentLang === 'es' ? 'en' : 'es'
@@ -32,11 +32,11 @@ const LangContextProvider = ({children}) => {
     
     useEffect(() => {
         const lng = localStorage.getItem('lang');
-        setCurrentLang(lng ? lng : 'en')
+        setCurrentLang(lng ? lng : 'es')
 
         const curr = localStorage.getItem('currency');
         setCurrentCurrency(curr ? curr : 'CLP')
-    });
+    }, []);
     
     return ( 
         <LangContext.Provider value={{changeLanguage, currentLang, changeCurrency, currentCurrency}}>

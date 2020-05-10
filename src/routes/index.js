@@ -10,7 +10,7 @@ import 'firebase/auth';
 import { useUser } from 'reactfire';
 
 import About from '../pages/About';
-import Login from  '../pages/Login';
+import Login from  '../pages/auth/Login';
 import Expenses from "../pages/expenses";
 import TrackerSettings from '../pages/settings'
 import Categories from '../pages/categories'

@@ -10,6 +10,12 @@ i18n
     resources: {
       en: {
         translations: {
+            "loading":"Loading...",
+            "login": "Login",
+            "Start tracking your expenses": "Start tracking your expenses",
+            "email":"Email",
+            "password":"Password",
+            "Sign In": "Sign In",
             "transaction":"transaction",
             "transactions":"Transactions",
             "no transactions":"Add your first transaction!",
@@ -39,6 +45,12 @@ i18n
       },
       es: {
         translations: {
+            "loading":"Cargando...",
+            "login": "Iniciar sesión",
+            "Start tracking your expenses": "Ingresa tus datos",
+            "email":"Email",
+            "password":"Contraseña",
+            "Sign In": "Comenzar",
             "transaction":"transacción",
             "no transactions":"¡Agrega tu primera transacción!",
             "transactions":"transacciones",
