@@ -1,11 +1,13 @@
 import React, { useState, useContext } from 'react';
-import styles from './transaction-form.module.scss';
+import { useTranslation } from "react-i18next";
 import { TransactionsContext } from '../../../context/TransactionContext';
 import { CategoriesContext } from '../../../context/CategoriesContext';
 import { ThemeContext }  from '../../../context/ThemeContext';
 
+import {MinusCircleIcon, PlusCircleIcon } from '../../../components/icons';
 import CategoryForm from '../../categories/category-form/CategoryForm';
-import { useTranslation } from "react-i18next";
+
+import styles from './transaction-form.module.scss';
 
 const TransactionForm = ({onClose}) => {
 
@@ -47,7 +49,7 @@ const TransactionForm = ({onClose}) => {
         <div 
         style={{ borderColor: theme.ui, color: theme.text, background: theme.bg }}
         className={styles.f__container}>
-           <form onSubmit={handleSubmit}>
+           <div onSubmit={handleSubmit}>
                <p className="text-center">{t("add transaction")}</p>
                <div className={styles.field__group}>
                    <input
@@ -75,6 +77,7 @@ const TransactionForm = ({onClose}) => {
                    <input
                     style={style}
                     onChange={handleInputs} value={transaction.amount} placeholder={t("amount")} type="number" name="amount" id="amount" className={styles.control}/>
+                    <span className={styles.help}>{t('help')}</span>
                </div>
                <div className={styles.field__group}>
                    <textarea
@@ -82,16 +85,19 @@ const TransactionForm = ({onClose}) => {
                     onChange={handleInputs} value={transaction.comments} placeholder={t("comments")} name="comments" id="comments" className={styles.control} cols="30" rows="2"></textarea>
                </div>
 
-               <div className={styles.actions}>
+                <div className={styles.actions}>
                     {
-                         transaction.amount > 0 && <button className={`${styles.button} ${styles.income}`}>{t("add income")}</button>
+                        transaction && transaction.amount > 0 && <button onClick={handleSubmit} className={`${styles.button} ${styles.income}`}><PlusCircleIcon/> {t("add income")}</button>
                     }
 
                     {
-                         transaction.amount < 0 && <button className={`${styles.button} ${styles.outcome}`}>{t("add expense")}</button>
+                        transaction && transaction.amount < 0 && <button onClick={handleSubmit} className={`${styles.button} ${styles.outcome}`}><MinusCircleIcon/> {t("add expense")}</button>
                     }
+                    
+
+                    
                </div>
-           </form>
+           </div>
         </div> 
      );
 }
